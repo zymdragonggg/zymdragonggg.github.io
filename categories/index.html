@@ -95,7 +95,7 @@
 <meta property="og:site_name" content="ZYM&#39;Blog">
 <meta property="og:description" content="Don not look up to others. I am also a landscape :)">
 <meta property="article:published_time" content="2020-03-06T06:27:43.000Z">
-<meta property="article:modified_time" content="2020-03-06T06:29:56.483Z">
+<meta property="article:modified_time" content="2020-03-07T15:05:56.988Z">
 <meta property="article:author" content="Amanda Z">
 <meta name="twitter:card" content="summary">
 
@@ -320,7 +320,14 @@
       <div class="post-body">
         
         
-          
+          <div class="category-all-page">
+            <div class="category-all-title">
+                目前共计 1 个分类
+            </div>
+            <div class="category-all">
+              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%9F%BA%E7%A1%80%E5%BA%94%E7%94%A8/">基础应用</a><span class="category-list-count">2</span></li></ul>
+            </div>
+          </div>
         
       </div>
       
@@ -339,6 +346,9 @@
 
           
 
+  
+    <div class="comments" id="comments">
+    </div>
   
 
 
@@ -382,12 +392,21 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
             
 
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
             
 
             
@@ -395,7 +414,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -486,7 +505,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">1.6k</span>
+    <span title="Site words total count">2.1k</span>
   
 </div>
 
@@ -662,6 +681,28 @@
 
 
 
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'ApyLTspLca1xPfsGb4mL0X55-gzGzoHsz',
+        appKey: 'NH1fSMzPzNaWst44tEiTq2bo',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
 
 
 

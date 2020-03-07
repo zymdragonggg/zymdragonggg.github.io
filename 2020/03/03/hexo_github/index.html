@@ -100,7 +100,7 @@
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/00831rSTly1gcjgfmiv0cj30dw01tgls.jpg">
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/00831rSTly1gckl8qnnhrj30bq02twet.jpg">
 <meta property="article:published_time" content="2020-03-03T13:35:23.000Z">
-<meta property="article:modified_time" content="2020-03-06T14:53:54.333Z">
+<meta property="article:modified_time" content="2020-03-07T14:58:22.894Z">
 <meta property="article:author" content="Amanda Z">
 <meta property="article:tag" content="Hexo">
 <meta property="article:tag" content="Github Pages">
@@ -368,15 +368,47 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2020-03-06T22:53:54+08:00">
-                2020-03-06
+              <time title="更新于" itemprop="dateModified" datetime="2020-03-07T22:58:22+08:00">
+                2020-03-07
               </time>
             
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%9F%BA%E7%A1%80%E5%BA%94%E7%94%A8/" itemprop="url" rel="index">
+                    <span itemprop="name">基础应用</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/03/03/hexo_github/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/03/03/hexo_github/" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
 
@@ -605,6 +637,22 @@
       
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/03/07/aliyunsetting/" rel="prev" title="给Ubuntu服务器配置tensorflow2.0">
+                给Ubuntu服务器配置tensorflow2.0 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
 
       
       
@@ -629,6 +677,9 @@
 
           
 
+  
+    <div class="comments" id="comments">
+    </div>
   
 
 
@@ -681,12 +732,21 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
             
 
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
             
 
             
@@ -694,7 +754,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -801,7 +861,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">1.6k</span>
+    <span title="Site words total count">2.1k</span>
   
 </div>
 
@@ -977,6 +1037,28 @@
 
 
 
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'ApyLTspLca1xPfsGb4mL0X55-gzGzoHsz',
+        appKey: 'NH1fSMzPzNaWst44tEiTq2bo',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
 
 
 
