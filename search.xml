@@ -102,8 +102,8 @@
 <hr>
 <h1 id="六、-图片"><a href="#六、-图片" class="headerlink" title="六、 图片"></a>六、 图片</h1><p>语法:<code>![图片文字](图片地址 &quot;鼠标放置时显示的信息&quot;)</code></p>
 <p>例子:</p>
-<p><code>![Queen](https://tva1.sinaimg.cn/large/00831rSTly1gcq09ook07j308c05k74c.jpg　”Your Majesty”)</code></p>
-<p><img src="https://tva1.sinaimg.cn/large/00831rSTly1gcq09ook07j308c05k74c.jpg" alt="Queen"></p>
+<p><code>![Queen](https://tva1.sinaimg.cn/large/00831rSTly1gcq09ook07j308c05k74c.jpg ”Your Majesty”)</code></p>
+<p><img src="https://tva1.sinaimg.cn/large/00831rSTly1gcq09ook07j308c05k74c.jpg" alt="Queen" title="Your Majesty"></p>
 <h1 id="七、-超链接"><a href="#七、-超链接" class="headerlink" title="七、 超链接"></a>七、 超链接</h1><p>语法:<code>[超链接名](超链接地址 &quot;鼠标放置时显示的信息&quot;)</code></p>
 <p>例子:<code>[百度一下,你就知道](www.baidu.com &quot;我就是百度&quot;)</code></p>
 <p><a href="https://www.baidu.com" target="_blank" rel="noopener" title="我就是百度">百度一下,你就知道</a></p>
@@ -132,11 +132,8 @@
 <td align="left">3</td>
 </tr>
 </tbody></table>
-<h1 id="十、-流程图"><a href="#十、-流程图" class="headerlink" title="十、 流程图"></a>十、 流程图</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">​&#96;&#96;&#96;flow</span><br><span class="line">st&#x3D;&gt;start: 开始</span><br><span class="line">op&#x3D;&gt;operation: My Operation</span><br><span class="line">cond&#x3D;&gt;condition: Yes or No?</span><br><span class="line">e&#x3D;&gt;end</span><br><span class="line">st-&gt;op-&gt;cond</span><br><span class="line">cond(yes)-&gt;e</span><br><span class="line">cond(no)-&gt;op</span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">st&#x3D;&gt;start: 开始</span><br><span class="line">op&#x3D;&gt;operation: My Operation</span><br><span class="line">cond&#x3D;&gt;condition: Yes or No?</span><br><span class="line">e&#x3D;&gt;end</span><br><span class="line">st-&gt;op-&gt;cond</span><br><span class="line">cond(yes)-&gt;e</span><br><span class="line">cond(no)-&gt;op</span><br></pre></td></tr></table></figure>
+<h1 id="十、-流程图"><a href="#十、-流程图" class="headerlink" title="十、 流程图"></a>十、 流程图</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">​&#96;&#96;&#96;flow</span><br><span class="line">st&#x3D;&gt;start: 开始</span><br><span class="line">op&#x3D;&gt;operation: My Operation</span><br><span class="line">cond&#x3D;&gt;condition: Yes or No?</span><br><span class="line">e&#x3D;&gt;end</span><br><span class="line">st-&gt;op-&gt;cond</span><br><span class="line">cond(yes)-&gt;e</span><br><span class="line">cond(no)-&gt;op</span><br><span class="line">​</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#96;&#96;&#96;flow</span><br><span class="line">st&#x3D;&gt;start: 开始</span><br><span class="line">op&#x3D;&gt;operation: My Operation</span><br><span class="line">cond&#x3D;&gt;condition: Yes or No?</span><br><span class="line">e&#x3D;&gt;end</span><br><span class="line">st-&gt;op-&gt;cond</span><br><span class="line">cond(yes)-&gt;e</span><br><span class="line">cond(no)-&gt;op</span><br></pre></td></tr></table></figure>
 
 <h1 id="十一、-补充一些小Tips"><a href="#十一、-补充一些小Tips" class="headerlink" title="十一、 补充一些小Tips"></a>十一、 补充一些小Tips</h1><p>补充一些我常用到的小tips</p>
 <p><strong>Tip 1 不显示全文</strong> </p>
@@ -148,11 +145,12 @@
 <hr>
 <p><strong>Tip 2 文字居中</strong> </p>
 <p>markdown似乎不支持居中，于是有一种类似html的操作，按照如下进行编写:</p>
-<p>语法：<code>&lt;center&gt;诶，我居中了&lt;/center&gt;</code></p>
-<p>结果：</p>
+<p>语法：<code>&lt;center&gt;需要居中的文字&lt;/center&gt;</code></p>
+<p>例子：</p>
+<p><code>&lt;center&gt;诶，我居中了&lt;/center&gt;</code></p>
 <center>诶，我居中了</center>
 
-<p><strong>Tip 2 选个好用的markdown编辑器</strong></p>
+<p><strong>Tip 3 选个好用的markdown编辑器</strong></p>
 <p>其实，如果不常用一些语法，完全可以使用markdown文档编辑器自带的编辑功能，只要选中要操作的内容，再去选择相应功能，就可以完成上述很多事情了。</p>
 <p>我的是mac本，用的是<a href="https://typora.io/" target="_blank" rel="noopener">Typora</a>，Simple, yet Powerful.</p>
 <p>简单干净，很喜欢这个markdown编辑器。其支持OS X，Windows，Linux</p>
