@@ -102,7 +102,7 @@
 <hr>
 <h1 id="六、-图片"><a href="#六、-图片" class="headerlink" title="六、 图片"></a>六、 图片</h1><p>语法:<code>![图片文字](图片地址 &quot;鼠标放置时显示的信息&quot;)</code></p>
 <p>例子:</p>
-<p><code>![Queen](https://tva1.sinaimg.cn/large/00831rSTly1gcq09ook07j308c05k74c.jpg Your Majesty)</code></p>
+<p><code>![Queen](https://tva1.sinaimg.cn/large/00831rSTly1gcq09ook07j308c05k74c.jpg　”Your Majesty”)</code></p>
 <p><img src="https://tva1.sinaimg.cn/large/00831rSTly1gcq09ook07j308c05k74c.jpg" alt="Queen"></p>
 <h1 id="七、-超链接"><a href="#七、-超链接" class="headerlink" title="七、 超链接"></a>七、 超链接</h1><p>语法:<code>[超链接名](超链接地址 &quot;鼠标放置时显示的信息&quot;)</code></p>
 <p>例子:<code>[百度一下,你就知道](www.baidu.com &quot;我就是百度&quot;)</code></p>
