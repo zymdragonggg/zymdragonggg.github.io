@@ -3,7 +3,7 @@
   <entry>
     <title>jupyter notebook配置过程中常见问题</title>
     <url>/2020/03/15/jupyter-notebook/</url>
-    <content><![CDATA[<p>本文主要针对在mac本上进行jupyter notebook配置时出现的一些小问题，提供解决方案以更好的帮助我们顺畅的试用jupyter。</p>
+    <content><![CDATA[<p>本文主要针对在mac本上进行jupyter notebook配置时出现的一些小问题，提供解决方案以更好的帮助我们顺畅的使用jupyter。</p>
 <a id="more"></a>
 
 <h2 id="一、Mac-上对jupyter-notebook启动页面路径修改"><a href="#一、Mac-上对jupyter-notebook启动页面路径修改" class="headerlink" title="一、Mac 上对jupyter notebook启动页面路径修改"></a>一、Mac 上对jupyter notebook启动页面路径修改</h2><p>刚刚装好jupyter以后，进入启动页面会显示很多文件，那是因为没有修改默认启动路径。</p>
