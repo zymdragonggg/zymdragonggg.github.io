@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="ssh," />
 
 
 
@@ -88,13 +88,16 @@
 
 
 
-<meta name="description" content="Don not look up to others. I am also a landscape :)">
-<meta property="og:type" content="website">
-<meta property="og:title" content="ZYM&#39;Blog">
-<meta property="og:url" content="http://zymdragonggg.github.io/categories/%E8%AF%AD%E8%A8%80%E6%8A%80%E8%83%BD/index.html">
+<meta name="description" content="本文主要介绍如何在ssh访问服务器时候不断开的一个简单操作。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何保持ssh连接服务器时服务不断开">
+<meta property="og:url" content="http://zymdragonggg.github.io/2020/03/26/ssh/index.html">
 <meta property="og:site_name" content="ZYM&#39;Blog">
-<meta property="og:description" content="Don not look up to others. I am also a landscape :)">
+<meta property="og:description" content="本文主要介绍如何在ssh访问服务器时候不断开的一个简单操作。">
+<meta property="article:published_time" content="2020-03-26T11:21:28.000Z">
+<meta property="article:modified_time" content="2020-03-26T11:47:33.084Z">
 <meta property="article:author" content="Amanda Z">
+<meta property="article:tag" content="ssh">
 <meta name="twitter:card" content="summary">
 
 
@@ -125,7 +128,7 @@
 
 
 
-  <link rel="canonical" href="http://zymdragonggg.github.io/categories/语言技能/"/>
+  <link rel="canonical" href="http://zymdragonggg.github.io/2020/03/26/ssh/"/>
 
 
 
@@ -142,7 +145,7 @@
   </script>
 
 
-  <title>分类: 语言技能 | ZYM'Blog</title>
+  <title>如何保持ssh连接服务器时服务不断开 | ZYM'Blog</title>
   
 
 
@@ -161,7 +164,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -299,55 +302,291 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block category">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>语言技能<small>分类</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zymdragonggg.github.io/2020/03/26/ssh/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Amanda Z">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/dragon.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZYM'Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2020/03/11/markdown/" itemprop="url">
-              
-                <span itemprop="name">MarkDown语法</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">如何保持ssh连接服务器时服务不断开</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-03-11T15:51:28+08:00"
-              content="2020-03-11" >
-          03-11
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-26T19:21:28+08:00">
+                2020-03-26
+              </time>
+            
 
-    </header>
-  </article>
+            
+              <span class="post-meta-divider">|</span>
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2020-03-26T19:47:33+08:00">
+                2020-03-26
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%9F%BA%E7%A1%80%E5%BA%94%E7%94%A8/" itemprop="url" rel="index">
+                    <span itemprop="name">基础应用</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/03/26/ssh/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/03/26/ssh/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  468
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>本文主要介绍如何在ssh访问服务器时候不断开的一个简单操作。</p>
+<a id="more"></a>
+
+<p>疫情在家，有时候需要跑跑实验，自己的老mac跑太心疼，于是在之前[配置阿里云服务器][<a href="https://zymdragonggg.github.io/2020/03/03/hexo_github/]上跑实验。">https://zymdragonggg.github.io/2020/03/03/hexo_github/]上跑实验。</a></p>
+<p>可是问题又来了，而且这个问题我在网上查发现是一个很常见的问题。</p>
+<p><strong>当我们ssh连接上服务器后，连续操作都ok，可是当代码报错后，去找找bug，等在回来跑程序，就断了，还得重新ssh访问服务器，每次打开服务器还要cd目标文件、激活虚拟环境、在输入要运行的文件。</strong></p>
+<p>呀好麻烦。。。</p>
+<p>采访一下当事人：</p>
+<blockquote>
+<p>每次我都是眼疾手快，快速定位错误，赶紧跑回来运行看看还有问题吗。</p>
+</blockquote>
+<p>后来这也耐不住能力有限，还是得去找解决方案</p>
+<p>但由于自己专业知识较薄弱，查阅了很多资料，很多相关的方法没有太懂，当时看到有需要编辑服务器配置文件的，自己尝试了发现还是不行。</p>
+<p>最后经过筛选找到一个很好用的方法，安全又好用，只要我们在ssh访问服务器时用下面这个命令即可：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -o ServerAliveInterval&#x3D;60 user@sshserver</span><br></pre></td></tr></table></figure>
+
+<p>这条指令的大致意思就是我访问服务器user@sshserver时，每60秒发送一个信号一类的东西，反正我理解就是不断保持服务器和客户端的数据沟通。</p>
+<p>告诉服务器，我还在呢，你别不管我。</p>
+<p>今天成功水了一篇文章，长篇大论下来，其实就一句话有用，不过我讲清楚了问题（需求），解决方案，最后满足了我们的期望。：）</p>
 
       
     </div>
 
+    
+    
+    
+<div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-hand-peace-o"></i>感谢您的阅读-------------</div>
+    
+</div>
+  
+</div>
+
+<div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2020/03/26/ssh/">如何保持ssh连接服务器时服务不断开</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 Amanda Z 的个人博客">Amanda Z</a></p>
+  <p><span>发布时间:</span>2020年03月26日 - 19:03</p>
+  <p><span>最后更新:</span>2020年03月26日 - 19:03</p>
+  <p><span>原始链接:</span><a href="/2020/03/26/ssh/" title="如何保持ssh连接服务器时服务不断开">http://zymdragonggg.github.io/2020/03/26/ssh/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://zymdragonggg.github.io/2020/03/26/ssh/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-相同方式共享 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+    });
+    });  
+</script>
+
+      
+</div>
+
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ssh/" rel="tag"><i class="fa fa-tag"></i> ssh</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/03/15/jupyter-notebook/" rel="next" title="jupyter notebook配置过程中常见问题">
+                <i class="fa fa-chevron-left"></i> jupyter notebook配置过程中常见问题
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -355,6 +594,13 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
 
         </div>
         
@@ -644,6 +890,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
