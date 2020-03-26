@@ -6,7 +6,7 @@
     <content><![CDATA[<p>本文主要介绍如何在ssh访问服务器时候不断开的一个简单操作。</p>
 <a id="more"></a>
 
-<p>疫情在家，有时候需要跑跑实验，自己的老mac跑太心疼，于是在之前[配置阿里云服务器][<a href="https://zymdragonggg.github.io/2020/03/03/hexo_github/]上跑实验。">https://zymdragonggg.github.io/2020/03/03/hexo_github/]上跑实验。</a></p>
+<p>疫情在家，有时候需要跑跑实验，自己的老mac跑太心疼，于是在之前<a href="https://zymdragonggg.github.io/2020/03/03/hexo_github/">配置阿里云服务器</a>上跑实验。</p>
 <p>可是问题又来了，而且这个问题我在网上查发现是一个很常见的问题。</p>
 <p><strong>当我们ssh连接上服务器后，连续操作都ok，可是当代码报错后，去找找bug，等在回来跑程序，就断了，还得重新ssh访问服务器，每次打开服务器还要cd目标文件、激活虚拟环境、在输入要运行的文件。</strong></p>
 <p>呀好麻烦。。。</p>
