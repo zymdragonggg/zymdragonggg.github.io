@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zymdragonggg.github.io/"/>
-  <updated>2020-03-29T03:27:37.247Z</updated>
+  <updated>2020-03-29T03:51:33.254Z</updated>
   <id>http://zymdragonggg.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>vscode中有关git的警告：The git repository at XX has too many changes, only a subset of Git features will be enabled.</title>
+    <link href="http://zymdragonggg.github.io/2020/03/29/git/"/>
+    <id>http://zymdragonggg.github.io/2020/03/29/git/</id>
+    <published>2020-03-29T03:23:14.000Z</published>
+    <updated>2020-03-29T03:51:33.254Z</updated>
+    
+    <content type="html"><![CDATA[<p>本文主要介绍如何解决在用vscode时提示的一个和git相关的警告。</p><a id="more"></a><p>打开vscode时会提示：GIT: The git repository at XXX has too many active changes, only a subset of Git features will be enabled.</p><p>如图所示：</p><p><img src="https://tva1.sinaimg.cn/large/00831rSTly1gdan2tvha7j30ci030t91.jpg" alt="image-20200329113102051"></p><p>然后再侧边栏的source control在一段时间后会显示有5K的变化。如下图。（统计后蓝色的那个东西会显示5K）</p><p><img src="https://tva1.sinaimg.cn/large/00831rSTly1gdanh95272j301r08vaa4.jpg" alt="image-20200329114456907"></p><p>统计这一过程非常慢。而且最近我的matlab运行非常的卡，最后干脆程序无响应。经过今天的研究认为应该就是在matlab路径下，很多数据变化了，git统计要很久，我认为这是主要原因。在查阅一些资料后，找到了一个最简单的解决方案：</p><p>找到提示中告知的文件路径，在里面打开显示隐藏文件（mac快捷键是command + shift + .），然后删除/Users/user_name/.git文件夹即可，如果需要对哪个仓库进行操作，只需要在特定文件夹下添加 .git文件即可。</p><p>删除下图文件夹。</p><p><img src="https://tva1.sinaimg.cn/large/00831rSTly1gdanbkxfdaj302p02rglm.jpg" alt="image-20200329113929726"></p><p>自从删除了这个文件夹，我的matlab终于顺畅了。。。。可是我不知道这是从什么时候开始出现的这个问题，我猜。。是我开始弄我这个个人博客开始吧。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文主要介绍如何解决在用vscode时提示的一个和git相关的警告。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Tips" scheme="http://zymdragonggg.github.io/categories/Tips/"/>
+    
+    
+      <category term="git" scheme="http://zymdragonggg.github.io/tags/git/"/>
+    
+      <category term="vscode" scheme="http://zymdragonggg.github.io/tags/vscode/"/>
+    
+  </entry>
   
   <entry>
     <title>如何保持ssh连接服务器时服务不断开</title>
