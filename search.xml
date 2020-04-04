@@ -507,6 +507,18 @@
 <p><code>&lt;center&gt;诶，我居中了&lt;/center&gt;</code></p>
 <center>诶，我居中了</center>
 
+<p><strong>Tip3 调整图片比例</strong> </p>
+<p>这里也利用html操作。</p>
+<p>语法如下，在最后加上style=”zoom:20%”，缩放至百分之20</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"https://bkimg.cdn.bcebos.com/pic/9a504fc2d5628535185967869aef76c6a6ef63d8?x-bce-process=image/watermark,g_7,image_d2F0ZXIvYmFpa2U4MA==,xp_5,yp_5"</span> <span class="attr">alt</span>=<span class="string">"img"</span> <span class="attr">style</span>=<span class="string">"zoom:20%;"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<img src="https://bkimg.cdn.bcebos.com/pic/9a504fc2d5628535185967869aef76c6a6ef63d8?x-bce-process=image/watermark,g_7,image_d2F0ZXIvYmFpa2U4MA==,xp_5,yp_5" alt="img" style="zoom:20%;" />
+
+<p>大小调整语法如下</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"https://bkimg.cdn.bcebos.com/pic/9a504fc2d5628535185967869aef76c6a6ef63d8?x-bce-process=image/watermark,g_7,image_d2F0ZXIvYmFpa2U4MA==,xp_5,yp_5"</span> <span class="attr">alt</span>=<span class="string">"img"</span> <span class="attr">height</span>=<span class="string">"30"</span> <span class="attr">width</span> =<span class="string">"50"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<img src="https://bkimg.cdn.bcebos.com/pic/9a504fc2d5628535185967869aef76c6a6ef63d8?x-bce-process=image/watermark,g_7,image_d2F0ZXIvYmFpa2U4MA==,xp_5,yp_5" alt="img" height="30" width ="50" />
+
 <p><strong>Tip 3 选个好用的markdown编辑器</strong></p>
 <p>其实，如果不常用一些语法，完全可以使用markdown文档编辑器自带的编辑功能，只要选中要操作的内容，再去选择相应功能，就可以完成上述很多事情了。</p>
 <p>我的是mac本，用的是<a href="https://typora.io/" target="_blank" rel="noopener">Typora</a>，Simple, yet Powerful.</p>
