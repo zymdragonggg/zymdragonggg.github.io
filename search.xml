@@ -644,6 +644,8 @@
 <p>基于本文需求，我们这里安装tensorflow2.0这个package</p>
 <p><code>conda install tensorflow</code></p>
 <p>也可以指定tf的版本，不过默认的话目前会下载tf2.0。</p>
+<p>通过以下指令可以查看已安装包</p>
+<p><code>conda list</code></p>
 <p>至于gpu版本的tensorflow因为我用不到，所以我没研究。。。。。。。。。。。。好，避免尴尬，下一步吧^-^</p>
 <h1 id="测试tf是否安装成功"><a href="#测试tf是否安装成功" class="headerlink" title="测试tf是否安装成功"></a>测试tf是否安装成功</h1><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">&gt;&gt;<span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line">&gt;&gt;print(tf.\_\_version\_\_)  <span class="comment">#注意这里两个总共四个下划线</span></span><br><span class="line"><span class="number">2.0</span><span class="number">.0</span></span><br></pre></td></tr></table></figure>
 
