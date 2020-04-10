@@ -34,7 +34,7 @@
 <meta property="og:image" content="https://bkimg.cdn.bcebos.com/pic/9a504fc2d5628535185967869aef76c6a6ef63d8?x-bce-process=image/watermark,g_7,image_d2F0ZXIvYmFpa2U4MA==,xp_5,yp_5">
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/00831rSTly1gcq0x94qi5j30dk0fiagu.jpg">
 <meta property="article:published_time" content="2020-03-11T07:51:28.000Z">
-<meta property="article:modified_time" content="2020-04-04T09:16:07.930Z">
+<meta property="article:modified_time" content="2020-04-10T09:09:48.885Z">
 <meta property="article:author" content="Amanda Z">
 <meta property="article:tag" content="markdown">
 <meta name="twitter:card" content="summary">
@@ -237,7 +237,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-04-04 17:16:07" itemprop="dateModified" datetime="2020-04-04T17:16:07+08:00">2020-04-04</time>
+                <time title="修改时间：2020-04-10 17:09:48" itemprop="dateModified" datetime="2020-04-10T17:09:48+08:00">2020-04-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -276,7 +276,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.5k</span>
+              <span>2.7k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -407,7 +407,7 @@
 <p>如 <code>&#96;&#96;&#96;</code>+python</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">这是一个python语法的编译器</span><br></pre></td></tr></table></figure>
 
-<h1 id="九、-表格"><a href="#九、-表格" class="headerlink" title="九、 表格"></a>九、 表格</h1><p>每一行都使用<code>|</code>隔开</p>
+<h1 id="九、-表格"><a href="#九、-表格" class="headerlink" title="九、 表格"></a>九、 表格</h1><h2 id="1-表格生成"><a href="#1-表格生成" class="headerlink" title="1. 表格生成"></a>1. 表格生成</h2><p>每一行都使用<code>|</code>隔开，一定切记<code>|</code>必须是英文输入法下的，并且表格的语句上一行必须为空行，不然表格不生效。</p>
 <p>第二行使用<code>:</code>设置对齐,两边都加表示文字居中,加在左边表示居左</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">|标题1|标题2|标题3|</span><br><span class="line">|-|:-:|:-|</span><br><span class="line">|1|2|3|</span><br></pre></td></tr></table></figure>
 
@@ -425,28 +425,42 @@
 <td align="left">3</td>
 </tr>
 </tbody></table>
+<h2 id="2-表格内换行"><a href="#2-表格内换行" class="headerlink" title="2.表格内换行"></a>2.表格内换行</h2><p>在想要换行的地方加入<code>&lt;br&gt;</code>后继续输入文字即可</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">|标题1|标题2|标题3|</span><br><span class="line">|-|:-:|:-|</span><br><span class="line">|1|2&lt;br&gt;dfa456|3|</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>标题1</th>
+<th align="center">标题2</th>
+<th align="left">标题3</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td align="center">2<br>dfa456</td>
+<td align="left">3</td>
+</tr>
+</tbody></table>
 <h1 id="十、-流程图"><a href="#十、-流程图" class="headerlink" title="十、 流程图"></a>十、 流程图</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">​&#96;&#96;&#96;flow</span><br><span class="line">st&#x3D;&gt;start: 开始</span><br><span class="line">op&#x3D;&gt;operation: My Operation</span><br><span class="line">cond&#x3D;&gt;condition: Yes or No?</span><br><span class="line">e&#x3D;&gt;end</span><br><span class="line">st-&gt;op-&gt;cond</span><br><span class="line">cond(yes)-&gt;e</span><br><span class="line">cond(no)-&gt;op</span><br></pre></td></tr></table></figure>
 
 <p>下面是例子展示：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">st&#x3D;&gt;start: 开始</span><br><span class="line">op&#x3D;&gt;operation: My Operation</span><br><span class="line">cond&#x3D;&gt;condition: Yes or No?</span><br><span class="line">e&#x3D;&gt;end</span><br><span class="line">st-&gt;op-&gt;cond</span><br><span class="line">cond(yes)-&gt;e</span><br><span class="line">cond(no)-&gt;op</span><br></pre></td></tr></table></figure>
 
 <h1 id="十一、-补充一些小Tips"><a href="#十一、-补充一些小Tips" class="headerlink" title="十一、 补充一些小Tips"></a>十一、 补充一些小Tips</h1><p>补充一些我常用到的小tips</p>
-<p><strong>Tip 1 不显示全文</strong> </p>
-<p>写博客时候我们希望首页不显示全文，只显示部分信息或者只放一个图片就OK，那么我们只要加入下列语法即可。例子如下</p>
+<h2 id="Tip-1-不显示全文"><a href="#Tip-1-不显示全文" class="headerlink" title="Tip 1 不显示全文"></a><strong>Tip 1 不显示全文</strong></h2><p>写博客时候我们希望首页不显示全文，只显示部分信息或者只放一个图片就OK，那么我们只要加入下列语法即可。例子如下</p>
 <hr>
 <p>这里放简单介绍</p>
 <p><code>&lt;!--more--&gt;</code></p>
 <p>这里放正文内容</p>
 <hr>
-<p><strong>Tip 2 文字居中</strong> </p>
-<p>markdown似乎不支持居中，于是有一种类似html的操作，按照如下进行编写:</p>
+<h2 id="Tip-2-文字居中"><a href="#Tip-2-文字居中" class="headerlink" title="Tip 2 文字居中"></a><strong>Tip 2 文字居中</strong></h2><p>markdown似乎不支持居中，于是有一种类似html的操作，按照如下进行编写:</p>
 <p>语法：<code>&lt;center&gt;需要居中的文字&lt;/center&gt;</code></p>
 <p>例子：</p>
 <p><code>&lt;center&gt;诶，我居中了&lt;/center&gt;</code></p>
 <center>诶，我居中了</center>
 
-<p><strong>Tip3 调整图片比例</strong> </p>
-<p>这里也利用html操作。</p>
+<h2 id="Tip3-调整图片比例"><a href="#Tip3-调整图片比例" class="headerlink" title="Tip3 调整图片比例"></a><strong>Tip3 调整图片比例</strong></h2><p>这里也利用html操作。</p>
 <p>语法如下，在最后加上style=”zoom:20%”，缩放至百分之20</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"https://bkimg.cdn.bcebos.com/pic/9a504fc2d5628535185967869aef76c6a6ef63d8?x-bce-process=image/watermark,g_7,image_d2F0ZXIvYmFpa2U4MA==,xp_5,yp_5"</span> <span class="attr">alt</span>=<span class="string">"img"</span> <span class="attr">style</span>=<span class="string">"zoom:20%;"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
 
@@ -571,7 +585,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、-标题"><span class="nav-text">一、 标题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一级标题"><span class="nav-text">一级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#二级标题"><span class="nav-text">二级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#三级标题"><span class="nav-text">三级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#四级标题"><span class="nav-text">四级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#五级标题"><span class="nav-text">五级标题</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、-列表"><span class="nav-text">二、 列表</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-无序列表"><span class="nav-text">1. 无序列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-有序列表"><span class="nav-text">2. 有序列表</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、-字体"><span class="nav-text">三、 字体</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四、-引用"><span class="nav-text">四、 引用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#五、-分割线"><span class="nav-text">五、 分割线</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#六、-图片"><span class="nav-text">六、 图片</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#七、-超链接"><span class="nav-text">七、 超链接</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#八、-代码"><span class="nav-text">八、 代码</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-单行"><span class="nav-text">1. 单行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-多行-代码块"><span class="nav-text">2.多行,代码块</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#九、-表格"><span class="nav-text">九、 表格</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#十、-流程图"><span class="nav-text">十、 流程图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#十一、-补充一些小Tips"><span class="nav-text">十一、 补充一些小Tips</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、-标题"><span class="nav-text">一、 标题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一级标题"><span class="nav-text">一级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#二级标题"><span class="nav-text">二级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#三级标题"><span class="nav-text">三级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#四级标题"><span class="nav-text">四级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#五级标题"><span class="nav-text">五级标题</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、-列表"><span class="nav-text">二、 列表</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-无序列表"><span class="nav-text">1. 无序列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-有序列表"><span class="nav-text">2. 有序列表</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、-字体"><span class="nav-text">三、 字体</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四、-引用"><span class="nav-text">四、 引用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#五、-分割线"><span class="nav-text">五、 分割线</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#六、-图片"><span class="nav-text">六、 图片</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#七、-超链接"><span class="nav-text">七、 超链接</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#八、-代码"><span class="nav-text">八、 代码</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-单行"><span class="nav-text">1. 单行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-多行-代码块"><span class="nav-text">2.多行,代码块</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#九、-表格"><span class="nav-text">九、 表格</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-表格生成"><span class="nav-text">1. 表格生成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-表格内换行"><span class="nav-text">2.表格内换行</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#十、-流程图"><span class="nav-text">十、 流程图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#十一、-补充一些小Tips"><span class="nav-text">十一、 补充一些小Tips</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Tip-1-不显示全文"><span class="nav-text">Tip 1 不显示全文</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tip-2-文字居中"><span class="nav-text">Tip 2 文字居中</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tip3-调整图片比例"><span class="nav-text">Tip3 调整图片比例</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -658,7 +672,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">15k</span>
+    <span title="站点总字数">16k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
