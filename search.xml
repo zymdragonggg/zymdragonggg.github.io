@@ -9,32 +9,32 @@
 <p>本人第一次尝试写竞品分析报告，历时一个多星期，由于数据资料缺失，对于产品的一些表述还不具备准确性，且内容还不够完善，感觉自己写的有点像每一份产品的分析报告，各路大神如果看到请多提出建议，希望我能够不断学习并进步。</p>
 <h2 id="1-竞品目的"><a href="#1-竞品目的" class="headerlink" title="1. 竞品目的"></a>1. 竞品目的</h2><p>为提高流利说英语的后续迭代方向提供辅助决策（假设）</p>
 <h2 id="2-竞品"><a href="#2-竞品" class="headerlink" title="2.竞品"></a>2.竞品</h2><p>扇贝口语，开言英语</p>
-<h2 id="3-竞品分析"><a href="#3-竞品分析" class="headerlink" title="3.竞品分析"></a>3.竞品分析</h2><h3 id="a-体验环境"><a href="#a-体验环境" class="headerlink" title="a. 体验环境"></a>a. 体验环境</h3><ul>
-<li><p><strong>手机设备：</strong>Hauwei Nova 3 </p>
-</li>
-<li><p><strong>系统版本</strong>：Android 9 EMUI 9.1.0</p>
-</li>
-<li><p><strong>竞品版本号：</strong></p>
 <ul>
+<li><strong>竞品版本号：</strong><ul>
 <li>流利说：7.16</li>
 <li>扇贝口语：1.9402</li>
 <li>开言英语：4.8.3  </li>
 </ul>
 </li>
-<li><p><strong>APP图标和首页\学习页总览：</strong></p>
-<figure class="third">    
-  <img src="https://bkimg.cdn.bcebos.com/pic/9a504fc2d5628535185967869aef76c6a6ef63d8?x-bce-process=image/watermark,g_7,image_d2F0ZXIvYmFpa2U4MA==,xp_5,yp_5" alt="img" style="zoom:20%;" />     
-  <img src="https://bkimg.cdn.bcebos.com/pic/738b4710b912c8fc5edde79ef4039245d68821b2?x-bce-process=image/watermark,g_7,image_d2F0ZXIvYmFpa2U4MA==,xp_5,yp_5" alt="img" style="zoom:20%;" />     
-  <img src="https://bkimg.cdn.bcebos.com/pic/c2cec3fdfc039245714acc548994a4c27c1e25e9?x-bce-process=image/watermark,g_7,image_d2F0ZXIvYmFpa2U5Mg==,xp_5,yp_5" alt="img" style="zoom:15%;" /> 
-</figure>
-
-<figure  class="third">
-  <img src="https://tva1.sinaimg.cn/large/00831rSTly1gdm6xfz1pnj30u01t01kx.jpg" alt="image-20200408111903217" style="zoom:20%;" />
-  <img src="https://tva1.sinaimg.cn/large/00831rSTly1gdjtkb5ldpj30u01t0djb.jpg" alt="1151586138605_.pic" style="zoom:20%;" />
-  <img src="https://tva1.sinaimg.cn/large/00831rSTly1gdjtm38u45j30u01t0wh7.jpg" alt="1131586138603_.pic" style="zoom:20%;" />
-</figure>
-
-</li>
+<li><strong>APP图标和首页\学习页总览：</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center"><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gdr4t5y6vnj30dd0ddq35.jpg" alt="英语流利说"></th>
+<th align="center"><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gdr4ut8rnjj30c10bz74p.jpg" alt="扇贝口语"></th>
+<th align="center"><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gdr4vc3p6cj30j60j6mx6.jpg" alt="开言英语"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://tva1.sinaimg.cn/large/00831rSTly1gdm6xfz1pnj30u01t01kx.jpg" alt="流利说"></td>
+<td align="center"><img src="https://tva1.sinaimg.cn/large/00831rSTly1gdjtkb5ldpj30u01t0djb.jpg" alt="扇贝口语"></td>
+<td align="center"><img src="https://tva1.sinaimg.cn/large/00831rSTly1gdjtm38u45j30u01t0wh7.jpg" alt="开言英语"></td>
+</tr>
+</tbody></table>
+<h2 id="3-竞品分析"><a href="#3-竞品分析" class="headerlink" title="3.竞品分析"></a>3.竞品分析</h2><h3 id="a-体验环境"><a href="#a-体验环境" class="headerlink" title="a. 体验环境"></a>a. 体验环境</h3><ul>
+<li><strong>手机设备：</strong>Hauwei Nova 3 </li>
+<li><strong>系统版本</strong>：Android 9 EMUI 9.1.0</li>
 </ul>
 <h3 id="b-定位"><a href="#b-定位" class="headerlink" title="b. 定位"></a>b. 定位</h3><ul>
 <li><strong>流利说英语：</strong>是一款融合创新口语教学理念和尖端语音评估技术的英语口语学习应用，让你“忍不住开口说英语”，依托于语音识别技术提高口语技能，利用大数据帮助用户自适应学习英语的手机App。</li>
