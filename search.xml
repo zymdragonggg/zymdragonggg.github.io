@@ -41,18 +41,14 @@
 </ul>
 <p>针对上述两点特性，这里举一个简单的例子：</p>
 <p>小朋友Jack想要拿到好成绩，于是不断的好好学习，最后拿到了一个不错的成绩，但是身心感觉很疲惫。后来Jack太累了，于是尝试学习过程中加入玩游戏，最好考试反而也拿到不错成绩，而且身心也感到愉快。这验证了一句：“All work and no play makes Jack a dull boy！！！”</p>
-<figure>
-<img src="https://tva1.sinaimg.cn/large/007S8ZIlly1geazlzw3tuj30ms07oq87.jpg" alt="image-20200429220457737" /><figcaption>image-20200429220457737</figcaption>
-</figure>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1geazlzw3tuj30ms07oq87.jpg"></p>
 <ul>
 <li><p>Jack尝试通过玩游戏的方式让自己变得快乐，但这同时会带来成绩下降的风险，这就可以理解为一个试错的过程，因为Jack在尝试玩游戏的时候也不知道会带来什么的结果。</p></li>
 <li><p>而获得好的成绩和身心感受就可理解为延迟奖励，经过和环境互动后，拿到奖励。</p></li>
 </ul>
 <h2 id="强化学习的学习过程">2. 强化学习的学习过程</h2>
 <p>下图是强化学习书里面的一幅图，很好的描述了强化学习的学习过程。</p>
-<figure>
-<img src="https://tva1.sinaimg.cn/large/007S8ZIlly1geazpccqnoj30em05ejrx.jpg" alt="image-20200429220812977" /><figcaption>image-20200429220812977</figcaption>
-</figure>
+<p><img src ="https://tva1.sinaimg.cn/large/007S8ZIlly1geazpccqnoj30em05ejrx.jpg"></p>
 <p>强化学习就是智能体（agent）通过和环境（environment）互动拿到奖励然后不断成长。智能体就可以理解为刚才例子里的Jack，环境因素可以有很多，比如学习的屋子，甚至智能体本身的特性（疲惫值）都理解成环境。</p>
 <p>其具体交互过程可以详述为以下3步：</p>
 <ol type="1">
@@ -129,9 +125,7 @@
 </table>
 <p>特别解释一下，C状态下选择play可能有$（0.5*0.2+0.5）= 0.6 $的概率到达A状态，还有<span class="math inline">\(0.5*0.4 = 0.2\)</span>的概率到达B和C状态。同时需要注意这个例子中，D为终态，意味着MDP终止。</p>
 <p>奖励和折扣因子都是可以人为给定的，这里就没有给出具体数值，不过在下一节会带入这些内容。</p>
-<figure>
-<img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gec0lm02qej30a606s74p.jpg" alt="image-20200430192445110" /><figcaption>image-20200430192445110</figcaption>
-</figure>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gec0lm02qej30a606s74p.jpg"></p>
 <p>从这个例子看来，需要解决的问题就是要学会在特定的状态做某个事情，如：在A状态的时候是应该睡觉好还是学习好，这其实就涉及到了策略的问题，下一节我们开始近一步阐述如何得到好的策略。</p>
 <h1 id="五策略状态值函数和动作值函数">五、策略、状态值函数和动作值函数</h1>
 <h2 id="策略policy">1. 策略（policy）</h2>
@@ -161,9 +155,7 @@ P(a = play|s = C) = 0.5
 v_{\pi}(s) = \mathbb{E}_{\pi}[G_{t}|S_{t} = s]
 \]</span> 如果忘记<span class="math inline">\(G_{t}\)</span>是什么的，大家去<a href="#jump">第三节的第二小节</a>回顾一下。我们仍采用上述的例子，只不过这次我们加入了奖励，并且为了方便理解，再一次简化了MDP。</p>
 <p>这里我们的状态集合为{A, B, C}，动作集合为{study, sleep}。策略是从A到B和C的概率分别为0.5，从B到C的概率为1，C为终态。奖励设置为在A时采取动作study到达B能够拿到-2的奖励，采取动作sleep到C能拿到0的奖励，在B采取动作sleep到C则能拿到+1的奖励。同时设置折扣因子<span class="math inline">\(\gamma = 1\)</span>。</p>
-<figure>
-<img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ged00p7uvej309n06b74o.jpg" alt="image-20200501155014713" /><figcaption>image-20200501155014713</figcaption>
-</figure>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ged00p7uvej309n06b74o.jpg"></p>
 <p>那么每一个状态的价值是多少呢？根据定义我们可以计算出结果如下： <span class="math display">\[
 v_{\pi}(A) = 0.5 * (0) + 0.5 * (-2 + 1) = -0.5 \\
 v_{\pi}(B) = 1 * (+1) = 1 \\
@@ -175,18 +167,14 @@ v_{\pi}(C) = 0
 v_{\pi}(s) = \mathbb{E}_{\pi}[R_{t+1} + \gamma v_{\pi}(S_{t+1})|S_{t} = s]
 \]</span> 这样在计算过程中，只要知道后继状态的价值，那么我们当前状态的价值就可以获悉。如我们知道状态C的价值为0，那么状态B就是<span class="math inline">\(1+ 1 * v_{\pi}(C)\)</span> = 1，那么状态A的价值为$0.5 <em>(0 +1</em>0) + 0.5<em>(-2 + 1</em>1) = -0.5 $。这样倒着计算，是很方便，只是在我这个例子里可能你察觉不到，你可以自己画一个例子去看看比较就知道它有多方便了，这可以省去大量的重复计算。</p>
 <p>我们现在学会了怎么快速计算状态的价值，这样我们就可以去评判策略好坏了。如下图，右图的策略就比左图的策略要好。因为BC状态价值一致的情况下，右图中A状态的价值更高。</p>
-<figure>
-<img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ged0udmufoj30h704zwev.jpg" alt="image-20200501161843921" /><figcaption>image-20200501161843921</figcaption>
-</figure>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ged0udmufoj30h704zwev.jpg"></p>
 <p>这里，我们还要简单介绍一下<strong>最优策略</strong>：最优策略就是在这个策略下所有的状态价值函数都比任何一个策略所带来的状态价值相等或者更高。</p>
 <p>那么如何得到最优策略呢？可以观察到上面两幅图中，在状态A下采取不同的动作会带来状态价值函数的改变，所以接下来就需要我们利用下一节的知识点---<strong>动作价值函数</strong>---来帮助我们去衡量动作能带来的价值。</p>
 <h2 id="动作价值函数action-value-function">3. 动作价值函数（action-value function）</h2>
 <p><strong>定义：</strong>动作价值函数<span class="math inline">\(q_{\pi}(s,a)\)</span>是在MDP中从状态s开始采取动作a并根据策略<span class="math inline">\(\pi\)</span>所获得的期望回报。 <span class="math display">\[
 q_{\pi}(s,a) = \mathbb{E}_{\pi}[G_{t}|S_{t} = s, A_{t} = a]
 \]</span> 同样还是利用上一节的例子，我们来看看如何找出最优策略。</p>
-<figure>
-<img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ged1app0ryj3084050mxc.jpg" alt="image-20200501163430694" /><figcaption>image-20200501163430694</figcaption>
-</figure>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ged1app0ryj3084050mxc.jpg"></p>
 <p>每个动作价值根据定义可得： <span class="math display">\[
 q_{\pi}(A, study) = -2 + 1 = -1 \\
 q_{\pi}(A, sleep) = 0 \\
