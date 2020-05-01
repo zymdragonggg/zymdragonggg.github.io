@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/dragon-apple.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/dragon-medium.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/dragon-small.png">
+  <link rel="mask-icon" href="/images/dragon-logo.svg" color="#222">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=KaiTi,"Microsoft YaHei",Georgia:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"zymdragonggg.github.io","root":"/","scheme":"Mist","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="本文主要介绍如何做好竞品分析。 由于还是产品小白，所以看了很多竞品分析的教程步骤以及竞品分析报告，最后基于自己的理解做了这样一份如何做好竞品分析的简介。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何做竞品分析（简介）">
+<meta property="og:url" content="http://zymdragonggg.github.io/2020/04/12/jingpinfenxijieshao/index.html">
+<meta property="og:site_name" content="ZYM&#39;Blog">
+<meta property="og:description" content="本文主要介绍如何做好竞品分析。 由于还是产品小白，所以看了很多竞品分析的教程步骤以及竞品分析报告，最后基于自己的理解做了这样一份如何做好竞品分析的简介。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-04-12T04:43:21.000Z">
+<meta property="article:modified_time" content="2020-04-12T08:54:41.123Z">
+<meta property="article:author" content="Amanda Z">
+<meta property="article:tag" content="产品">
+<meta property="article:tag" content="竞品分析">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://zymdragonggg.github.io/2020/04/12/jingpinfenxijieshao/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>如何做竞品分析（简介） | ZYM'Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="ZYM'Blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">ZYM'Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">To learn, to be strong</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/zymdragonggg" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://zymdragonggg.github.io/2020/04/12/jingpinfenxijieshao/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/dragon.png">
+      <meta itemprop="name" content="Amanda Z">
+      <meta itemprop="description" content="Don not look up to others. I am also a landscape :)">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZYM'Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          如何做竞品分析（简介）
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-04-12 12:43:21 / 修改时间：16:54:41" itemprop="dateCreated datePublished" datetime="2020-04-12T12:43:21+08:00">2020-04-12</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E4%BA%A7%E5%93%81%E7%9F%A5%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">产品知识</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/04/12/jingpinfenxijieshao/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/04/12/jingpinfenxijieshao/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.6k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>本文主要介绍如何做好竞品分析。</p>
+<p>由于还是产品小白，所以看了很多竞品分析的教程步骤以及竞品分析报告，最后基于自己的理解做了这样一份如何做好竞品分析的简介。</p>
+<a id="more"></a>
+<blockquote>
+<p>竞品分析主要是通过对竞争对手的产品进行比较分析，了解竞争对手的产品功能、定位、策略以及市场动态，根据自己的需求选择竞品分析的重点，知己知彼，找出差异化，方便梳理自己产品的思路。</p>
+</blockquote>
+<p>本文内容主要参考了 <a href="http://www.woshipm.com/evaluating/332122.html" target="_blank" rel="noopener">板栗在飞</a> 对于竞品分析的介绍，主要是从用户、功能和数据分析的角度去做竞品分析。不过个人在竞品分析一节中加入了其他相关内容，认为这些也是竞品分析的一些需要重点考虑的事情。</p>
+<h2 id="1-明确竞品分析的目的"><a href="#1-明确竞品分析的目的" class="headerlink" title="1. 明确竞品分析的目的"></a>1. 明确竞品分析的目的</h2><ul>
+<li>为了谁而做，产品团队、研发设计还是运营、老板</li>
+<li>着重分析哪些内容</li>
+<li>这个报告能给谁带来什么有价值的结论和建议</li>
+</ul>
+<h2 id="2-选择合适的竞品"><a href="#2-选择合适的竞品" class="headerlink" title="2. 选择合适的竞品"></a>2. 选择合适的竞品</h2><ul>
+<li>核心目标用户都是同一群体（但是满足的需求不同）的产品，有些产品是互补的</li>
+<li>满足的都是同样的需求的产品（直接的竞争对手）</li>
+<li>其他的产品（未来潜在的对手）</li>
+</ul>
+<h2 id="3-资料搜集"><a href="#3-资料搜集" class="headerlink" title="3. 资料搜集"></a>3. 资料搜集</h2><h3 id="a-搜集分析用户意见"><a href="#a-搜集分析用户意见" class="headerlink" title="a.搜集分析用户意见"></a>a.搜集分析用户意见</h3><p>(我们的产品和竞品的用户对于产品的看法和意见）</p>
+<ul>
+<li>分析角度<ul>
+<li>如何看待我们和竞品都有的功能，他们是如何比较这个功能的</li>
+<li>我们没有的功能但是竞品却有的功能，他们又是如何看待这个功能的，用户会不会因为这个功能而选择用竞品而不是我们；</li>
+<li>我们有的功能但是竞品没有的功能，他们又是如何看待这个功能的，这个功能能不能帮助我们从竞品那里抢夺用户。</li>
+</ul>
+</li>
+<li>分析方法<ul>
+<li>App Store, 知乎，应用软件社区，产品行业网站，微博评论</li>
+<li>从同事、朋友家人讨论</li>
+<li>用户访谈</li>
+<li>熟悉竞品，咨询对方，加入论坛甚至群，发现收集有价值的信息</li>
+</ul>
+</li>
+</ul>
+<h3 id="b-搜集并分析竞品的数据"><a href="#b-搜集并分析竞品的数据" class="headerlink" title="b. 搜集并分析竞品的数据"></a>b. 搜集并分析竞品的数据</h3><ul>
+<li>获得哪些数据<ul>
+<li>我们与竞品的市场份额占有比，下载量对比</li>
+<li>与竞品用户数量对比，用户增长率，增长趋势，活跃度对比</li>
+<li>其他数据</li>
+</ul>
+</li>
+<li>获得方法<ul>
+<li>百度指数、淘宝指数、友盟指数</li>
+<li>艾瑞咨询、易观智库，CNNIC，比达咨询，DCCI互联网数据中心，Alexa;</li>
+<li>App store，app annie；</li>
+<li>其他</li>
+</ul>
+</li>
+</ul>
+<h2 id="3-竞品分析"><a href="#3-竞品分析" class="headerlink" title="3. 竞品分析"></a>3. 竞品分析</h2><p>竞品分析的三个方面，分析过程中应该围绕用户体验5要素：<strong>战略层、范围层、结构层、框架层、表现层。</strong></p>
+<p>展开一下对用户体验5要素的解释：</p>
+<p><em>这里内容借鉴<a href="http://www.woshipm.com/discuss/53005.html" target="_blank" rel="noopener">漓江</a>对于用户体验五要素的介绍</em></p>
+<ul>
+<li><strong>战略层：</strong>产品目标及目标用户（做什么、为谁而做？）</li>
+<li><strong>范围层：</strong>功能及其内容需求整合（需要做哪些？）战略决定范围，功能承载产品价值，范围层是为了实现战略层。</li>
+<li><strong>结构层：</strong>交互设计及其信息架构（怎么做？）结构层将从范围转变成如何响应用户的请求，确定各个将要呈现给用户的选项的模式和顺序：交互设计、信息架构</li>
+<li><strong>框架层：</strong>界面设计（确定框架，按钮、输入框）、导航设计（呈现信息）和内容信息设计（信息沟通）（要做成什么样子）</li>
+<li><strong>表现层：</strong>功能及内容的视觉呈现（做成了什么样子）</li>
+</ul>
+<h3 id="a-用户分析"><a href="#a-用户分析" class="headerlink" title="a. 用户分析"></a>a. 用户分析</h3><ul>
+<li><p>核心用户</p>
+<p>即最忠诚、粘性最高的用户</p>
+</li>
+<li><p>主流用户</p>
+<p>用户构成比例</p>
+</li>
+</ul>
+<h3 id="b-功能分析"><a href="#b-功能分析" class="headerlink" title="b. 功能分析"></a>b. 功能分析</h3><ul>
+<li>核心竞争力</li>
+<li>主要功能<ul>
+<li>直接在产品内部看，根据用户的行为表现和反馈评价，判断功能好坏</li>
+<li>在用户发表意见的地方去搜索：百度，微博，知乎，app store</li>
+<li>主要功能选择：自己没有或者不太好的，对手做的好的来进行研究</li>
+</ul>
+</li>
+</ul>
+<h3 id="c-数据分析"><a href="#c-数据分析" class="headerlink" title="c. 数据分析"></a>c. 数据分析</h3><p>可以利用一些数据分析工具，查看排名以及变化趋势等</p>
+<p>首先需要对整个领域进行一定的认知，了解这个领域的用户规模是什么样的</p>
+<ul>
+<li><p>整体数据</p>
+<p>不同产品的排名、评价、差评</p>
+</li>
+<li><p>变化趋势</p>
+<p>排名变化趋势等</p>
+</li>
+<li><p>具体功能数据</p>
+<p>某项功能的数据对比</p>
+</li>
+</ul>
+<h3 id="d-分析方法"><a href="#d-分析方法" class="headerlink" title="d.分析方法"></a>d.分析方法</h3><ul>
+<li>十字交叉法</li>
+<li>SWOT分析法<ul>
+<li>S（strengths）是优势、W（weaknesses）是劣势，O（opportunities）是机会、T（threats）是威胁。</li>
+<li>即基于内外部竞争环境和竞争条件下的态势分析，就是将与研究对象密切相关的各种主要内部优势、劣势和外部的机会和威胁等，通过调查列举出来，并依照矩阵形式排列，然后用系统分析的思想，把各种因素相互匹配起来加以分析，从中得出一系列相应的结论，而结论通常带有一定的决策性。</li>
+</ul>
+</li>
+<li>信息对比<ul>
+<li>目标用户</li>
+<li>UI和UE</li>
+<li>盈利模式</li>
+<li>活动运营</li>
+<li>核心功能<ul>
+<li>功能的有无</li>
+<li>功能的实现差别</li>
+<li>用户满足的期望值</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="4-竞品分析结论"><a href="#4-竞品分析结论" class="headerlink" title="4. 竞品分析结论"></a>4. 竞品分析结论</h2><p>根据竞品分析，给出应该怎么做以达到竞品分析的目的</p>
+
+    </div>
+
+    
+    
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-hand-peace-o"></i>感谢您的阅读-------------</div>
+    
+</div>
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Amanda Z
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://zymdragonggg.github.io/2020/04/12/jingpinfenxijieshao/" title="如何做竞品分析（简介）">http://zymdragonggg.github.io/2020/04/12/jingpinfenxijieshao/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E4%BA%A7%E5%93%81/" rel="tag"><i class="fa fa-tag"></i> 产品</a>
+              <a href="/tags/%E7%AB%9E%E5%93%81%E5%88%86%E6%9E%90/" rel="tag"><i class="fa fa-tag"></i> 竞品分析</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/03/29/hexotheme/" rel="prev" title="NexT主题升级以及hexo4.2.0 NexT7.7.2主题美化">
+      <i class="fa fa-chevron-left"></i> NexT主题升级以及hexo4.2.0 NexT7.7.2主题美化
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/04/12/%E7%AB%9E%E5%93%81%E5%88%86%E6%9E%90%E5%AE%9E%E4%BE%8B/" rel="next" title="竞品分析实例--有关于流利说英语的竞品分析报告">
+      竞品分析实例--有关于流利说英语的竞品分析报告 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-明确竞品分析的目的"><span class="nav-text">1. 明确竞品分析的目的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-选择合适的竞品"><span class="nav-text">2. 选择合适的竞品</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-资料搜集"><span class="nav-text">3. 资料搜集</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#a-搜集分析用户意见"><span class="nav-text">a.搜集分析用户意见</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#b-搜集并分析竞品的数据"><span class="nav-text">b. 搜集并分析竞品的数据</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-竞品分析"><span class="nav-text">3. 竞品分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#a-用户分析"><span class="nav-text">a. 用户分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#b-功能分析"><span class="nav-text">b. 功能分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#c-数据分析"><span class="nav-text">c. 数据分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#d-分析方法"><span class="nav-text">d.分析方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-竞品分析结论"><span class="nav-text">4. 竞品分析结论</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Amanda Z"
+      src="/images/dragon.png">
+  <p class="site-author-name" itemprop="name">Amanda Z</p>
+  <div class="site-description" itemprop="description">Don not look up to others. I am also a landscape :)</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/zymdragonggg" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;zymdragonggg" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:714977076@qq.com" title="E-Mail → mailto:714977076@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      推荐阅读
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://stepneverstop.github.io/" title="http:&#x2F;&#x2F;stepneverstop.github.io" rel="noopener" target="_blank">Keavnn</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Amanda Z</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">37k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">34 分钟</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+  <script src="//code.tidio.co/0uq3ebmd2rkasldxtojlcbdal0xwqyzj.js"></script>
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'ApyLTspLca1xPfsGb4mL0X55-gzGzoHsz',
+      appKey     : 'NH1fSMzPzNaWst44tEiTq2bo',
+      placeholder: "Just say sth.",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
