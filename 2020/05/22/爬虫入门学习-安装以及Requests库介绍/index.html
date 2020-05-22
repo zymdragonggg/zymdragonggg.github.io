@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/dragon-apple.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/dragon-medium.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/dragon-small.png">
+  <link rel="mask-icon" href="/images/dragon-logo.svg" color="#222">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=KaiTi,"Microsoft YaHei",Georgia:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"zymdragonggg.github.io","root":"/","scheme":"Mist","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="本文主要是为了记录网络爬虫学习过程中的笔记和自己的一丢丢理解，希望可以通过本文以及如果有后续文章的话，能够掌握网络数据爬虫和网页解析的基本能力。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="爬虫入门学习-安装以及Requests库介绍">
+<meta property="og:url" content="http://zymdragonggg.github.io/2020/05/22/%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8ARequests%E5%BA%93%E4%BB%8B%E7%BB%8D/index.html">
+<meta property="og:site_name" content="ZYM&#39;Blog">
+<meta property="og:description" content="本文主要是为了记录网络爬虫学习过程中的笔记和自己的一丢丢理解，希望可以通过本文以及如果有后续文章的话，能够掌握网络数据爬虫和网页解析的基本能力。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/007S8ZIlgy1gezvkx2zwvj30h30badp5.jpg">
+<meta property="article:published_time" content="2020-05-22T11:06:23.000Z">
+<meta property="article:modified_time" content="2020-05-22T11:13:56.074Z">
+<meta property="article:author" content="Amanda Z">
+<meta property="article:tag" content="网络爬虫">
+<meta property="article:tag" content="Requests库">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://tva1.sinaimg.cn/large/007S8ZIlgy1gezvkx2zwvj30h30badp5.jpg">
+
+<link rel="canonical" href="http://zymdragonggg.github.io/2020/05/22/%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8ARequests%E5%BA%93%E4%BB%8B%E7%BB%8D/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>爬虫入门学习-安装以及Requests库介绍 | ZYM'Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="ZYM'Blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">ZYM'Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">To learn, to be strong</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/zymdragonggg" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://zymdragonggg.github.io/2020/05/22/%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8ARequests%E5%BA%93%E4%BB%8B%E7%BB%8D/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/dragon.png">
+      <meta itemprop="name" content="Amanda Z">
+      <meta itemprop="description" content="Don not look up to others. I am also a landscape :)">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZYM'Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          爬虫入门学习-安装以及Requests库介绍
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-05-22 19:06:23 / 修改时间：19:13:56" itemprop="dateCreated datePublished" datetime="2020-05-22T19:06:23+08:00">2020-05-22</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/" itemprop="url" rel="index"><span itemprop="name">网络爬虫</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/05/22/%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8ARequests%E5%BA%93%E4%BB%8B%E7%BB%8D/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/05/22/%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8ARequests%E5%BA%93%E4%BB%8B%E7%BB%8D/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>6.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>6 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>本文主要是为了记录网络爬虫学习过程中的笔记和自己的一丢丢理解，希望可以通过本文以及如果有后续文章的话，能够掌握网络数据爬虫和网页解析的基本能力。</p>
+<a id="more"></a>
+<p>本文主要是参考了<a href="https://www.bilibili.com/video/BV1kx411S7Fh?p=7" target="_blank" rel="noopener">MOOC-北京理工大学的网络爬虫的课程</a>。</p>
+<h1 id="一准备工作">一、准备工作</h1>
+<h2 id="安装anaconda">1. 安装<a href="https://www.anaconda.com/products/individual" target="_blank" rel="noopener">anaconda</a></h2>
+<p><em>即便已经安装了python也建议安装anaconda，因为Anaconda 附带了一大批常用数据科学包，而且anaconda是建立在conda（包管理器和环境管理器）上的，她可以管理包（安装、卸载、更新包），还可以管理环境，比如python2， python3，同时安装两个版本的python可能造成混乱，又或者你希望一个环境是用tensorflow1.0版本的，另一个用tensorflow2.0版本，这样就可以在对应环境下处理不同需求的任务了。总之，conda是一个非常不错的工具。</em></p>
+<h2 id="安装爬虫需要的requests库">2. 安装爬虫需要的Requests库</h2>
+<p><strong>Requests是一个基于Apache2协议开源的Python HTTP库</strong>，总之是进行网络爬虫时必备的一个库文件。</p>
+<p>因为我用了conda，所以我的命令是：</p>
+<p><code>conda install requests</code></p>
+<p>如果没有安装conda或者不用conda的命令，也可以pip的方式：</p>
+<p><code>pip install requests</code></p>
+<h2 id="测试安装是否成功">3. 测试安装是否成功</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> requests</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>r = requests.get(<span class="string">"http://www.baidu.com"</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>r.status_code </span><br><span class="line"><span class="number">200</span>  <span class="comment">#这样表示访问成功</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>r.encoding = <span class="string">'utf-8'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>r.text <span class="comment">#打印出当前网页内容</span></span><br></pre></td></tr></table></figure>
+<p>打印的结果如下：</p>
+<figure>
+<img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gezvkx2zwvj30h30badp5.jpg" alt="image-20200521104436075" /><figcaption>image-20200521104436075</figcaption>
+</figure>
+<p>以上则说明安装成功！：）</p>
+<h1 id="二requests库">二、Requests库</h1>
+<h2 id="response对象">1.Response对象</h2>
+<p>在上一节中第3小节中，可以看到获取网页资源的方法就是：</p>
+<p><code>r = requests.get(url)</code></p>
+<p>这里<code>.get(url)</code>相当于构造了一个向服务器请求资源的Request对象，其返回的内容的为r，这是Response对象，包含服务器所含的所有相关资源。</p>
+<p>这里我们重点介绍一下Response对象。</p>
+<p>同样在上一节我们已经看到了Response对象的一个属性，<code>r.status_code</code>用于检测请求状态，返回200说明访问成功。那么我们需要了解到Response对象的几个重要的属性：</p>
+<table>
+<thead>
+<tr class="header">
+<th>属性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>r.status_code</td>
+<td>HTTP请求的返回状态，200表示连接成功，404表示失败</td>
+</tr>
+<tr class="even">
+<td>r.text</td>
+<td>HTTP响应内容的字符串形式，即url对应的页面内容</td>
+</tr>
+<tr class="odd">
+<td>r.encoding</td>
+<td>从HTTP header中猜测的响应内容编码方式</td>
+</tr>
+<tr class="even">
+<td>r.apparent_encoding</td>
+<td>从内容中分析出的响应内容编码方式（备选编码方式）</td>
+</tr>
+<tr class="odd">
+<td>r.content</td>
+<td>HTTP响应内容的二进制形式</td>
+</tr>
+</tbody>
+</table>
+<p>其中<code>r.text</code>是根据<code>r.encoding</code>显示网页内容的，并且<code>r.encoding</code>是用于告知网站的编码方式，如果在header中不存在charset字段，那么编码默认为ISO-8859-1，而<code>r.apparent_encoding</code>是根据网页内容分析出的编码方式。如执行下述操作，可以看出这两种的不同：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> requests</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>r = requests.get(<span class="string">"http://www.baidu.com"</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>r.encoding</span><br><span class="line"><span class="string">'ISO-8859-1'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>r.apparent_encoding</span><br><span class="line"><span class="string">'utf-8'</span></span><br></pre></td></tr></table></figure>
+<p>如果直接利用第一种编码方式输出<code>r.text</code>的话返回的是乱码，但是如果我们通过设置<code>r.encoding</code> 为分析出的<code>'utf-8'</code>的话，那么<code>r.text</code>返回的就会包含百度页面的一些中文字，是我们能看懂的一些东西。</p>
+<p>这里还要再科普一下各种编码方式，下面的东西是我在一个博客<a href="https://blog.csdn.net/zhanghuaichao/article/details/77862037" target="_blank" rel="noopener">zhanghuaichao</a>上看到的，我简单的整理了一下，缩短了这个故事:</p>
+<p>首先最一开始计算机在美国广泛使用，其用来存储英语的文字时，设计了叫<strong>ANSI的Ascii编码</strong>，一共有127号。后来世界各国都开始使用计算机，但是很多国家文字不是英文，ASCII里面没有，于是利用127号之后的空位来表示新的字母、符号，从128到255被称为<strong>扩展字符集</strong>。这时已经占满了可表示的所有状态。</p>
+<p>等后来中国人用计算机时，由于汉字数量十分多，于是人们巧妙的利用两个大于127的字符连接在一起的时候表示一个汉字，这样的组合就能够满足大约7000多个简体汉字了。在这些编码里，还把数学符号、罗马希腊的字母、日文的假名们都编进去了，连在 ASCII 里本来就有的数字、标点、字母都统统重新编了两个字节长的编码，这就是常说的&quot;全角&quot;字符，而原来在127号以下的那些就叫&quot;半角&quot;字符了。于是这种汉字编码方案就被称为<strong>“GB2312”</strong>，是对 ASCII 的中文扩展。后来这个方案还是不够用，于是不在要求低字节的是127号之后的码了，只要第一个字节大于127就表示这是一个汉字的开始。这就被称为了<strong>GBK标准</strong>，其在GB2312基础上又增加了近20000个新的汉字。少数民族的语言加入进来以后，<strong>GBK扩展成了GB8030</strong>。中国的程序员们就叫这一系列汉字编码为 <strong>&quot;DBCS&quot;（Double Byte Charecter Set 双字节字符集）</strong>。</p>
+<p>由于每个国家都和中国一样有一套这样的编码标准，所以谁都不理解谁，针对不同编码方式的东西还要下载相应的字符系统，非常麻烦，于是这时，一个叫 ISO （国际标准化组织）的国际组织决定着手解决这个问题。他们废了所有的地区性编码方案，重新搞一个包括了地球上所有文化、所有字母和符号的编码，也就是如今的<strong>&quot;UNICODE&quot;</strong>。UNICODE 是用两个字节来表示为一个字符，他总共可以组合出65535不同的字符。</p>
+<p>UNICODE 来到时，一起到来的还有计算机网络的兴起，UNICODE 如何在网络上传输也是一个必须考虑的问题，于是面向传输的众多 <strong>UTF（UCS Transfer Format）</strong>标准出现了，UTF8就是每次8个位传输数据。UTF-8就是在互联网上使用最广的一种unicode的实现方式。</p>
+<p><em>那么这里面似乎没有提到ISO-8859-1，这个单字节编码，此字符集主要支持欧洲使用的语言。</em></p>
+<p><em>所以不难知道为什么我们get百度的资源时，如果不指定<code>r.encoding</code>，就会乱码了，因为百度中的中文字符编码方式是不同的。</em></p>
+<h2 id="requests库异常">2.Requests库异常</h2>
+<p>在爬取过程中，同我们写程序一样，都会遇到各种各样的异常问题，这就需要我们理解并处理好这些异常情况，从而可以帮助我们更好的爬取网页。</p>
+<p>Requests库的异常</p>
+<table>
+<thead>
+<tr class="header">
+<th>异常</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>requests.ConnectionError</td>
+<td>网络链接错误异常，如DNS查询失败、拒绝连接等</td>
+</tr>
+<tr class="even">
+<td>requests.HTTPError</td>
+<td>HTTP错误异常</td>
+</tr>
+<tr class="odd">
+<td>requests.URLRequired</td>
+<td>URL缺失异常</td>
+</tr>
+<tr class="even">
+<td>requests.TooManyRedirects</td>
+<td>超过最大重定向次数、产生重定向异常</td>
+</tr>
+<tr class="odd">
+<td>requests.ConnectTimeout</td>
+<td>连接远程服务器超时异常</td>
+</tr>
+<tr class="even">
+<td>requests.Timeout</td>
+<td>请求URL超时，产生超时异常</td>
+</tr>
+</tbody>
+</table>
+<p>这里在补充一些额外小知识：</p>
+<ul>
+<li>重定向是指假设你现在所处的位置是一个论坛的登录百页面，你填写了帐号，密码，点击登陆，如果你的帐号密码正确，就自动跳转到论坛的首页，不正确就度返回登录页；这里的自动跳转，就是重定向的意思。或者可以说，重定向就是，在网页上设置一个约束条件，条件满足，就自动转入到其它网页、网址。</li>
+<li>ConnectTimeout和Timeoout区别：
+<ul>
+<li>connectTimeout: 仅连接服务器时超过一定时间。</li>
+<li>Timeout: 从访问请求发出到获取网页资源超过一定时间。</li>
+</ul></li>
+</ul>
+<p>捕获上述异常状态时可以用到<code>r.raise_for_status()</code>来表示。如果状态不是200，那么就为引发异常。由此为了确保稳定安全的网络爬取，这里给出了一个通用的<strong>爬取框架</strong>：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getHTMLText</span><span class="params">(url)</span>:</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        r = requests.get(url)</span><br><span class="line">        r.raise_for_status()</span><br><span class="line">        r.encoding = r.apparent_encoding <span class="comment">#这里用上一小节讲到的知识就能够理解了</span></span><br><span class="line">        <span class="keyword">return</span> r.text</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"产生异常"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    url = <span class="string">"http://www.baidu.com"</span></span><br><span class="line">    print(getHTMLText(url))</span><br></pre></td></tr></table></figure>
+<h2 id="http协议和requests库方法">3. HTTP协议和Requests库方法</h2>
+<p>在一开始安装Requests库时提到Requests是一个基于Apache2协议开源的Python HTTP库，这其中的HTTP（Hypertext Transfer Protocol）是指互联网的超文本传输协议，我们可以利用HTTP协议对网络资源进行一系列的操作（请求资源、删除资源等）。</p>
+<p>HTTP是基于请求和响应模式的、无状态的应用层协议，理解起来就是用户发出请求，服务器作出响应，无状态指请求之间没有关联。</p>
+<p>HTTP采用URL作为定位网络资源的标识符，URL是通过HTTP协议存取资源的Internet路径，一个URL对应一个数据资源，其格式如下：</p>
+<p><code>http://host[:post][path]</code> <code>host</code>: 合法的Internet主机域名或ip地址 <code>port</code>: 端口号，缺省为80 <code>path</code>: 请求资源的路径</p>
+<p>综上我理解的就是，Requests库可以理解成一个专门应用在HTTP协议上的工具，从而使得HTTP协议可以通过URL来完成对网络资源的获取和管理。</p>
+<table>
+<thead>
+<tr class="header">
+<th>HTTP方法</th>
+<th>Request方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>GET</td>
+<td>requests.get()</td>
+<td>获取URL位置资源（全部资源）</td>
+</tr>
+<tr class="even">
+<td>HEAD</td>
+<td>requests.head()</td>
+<td>获取URL位置资源的头部信息</td>
+</tr>
+<tr class="odd">
+<td>POST</td>
+<td>requests.post()</td>
+<td>向URL位置后的资源附加新的数据</td>
+</tr>
+<tr class="even">
+<td>PUT</td>
+<td>requests.put()</td>
+<td>向URL位置存储一个资源，覆盖原URL位置的资源</td>
+</tr>
+<tr class="odd">
+<td>PATCH</td>
+<td>requests.patch()</td>
+<td>局部更新URL位置的资源，改变该处资源的部分内容</td>
+</tr>
+<tr class="even">
+<td>DELETE</td>
+<td>requests.delete()</td>
+<td>删除URL位置存储的资源</td>
+</tr>
+</tbody>
+</table>
+<p>注意：</p>
+<ul>
+<li>如果资源很大的时候，GET就不合适了，可以获取HEAD信息，提前分析资源的内容。</li>
+<li>PUT和PATCH，PUT是修改了全部字段，而PATCH只是修改了部分指定字段</li>
+</ul>
+<h2 id="requests库方法详解">4. Requests库方法详解</h2>
+<p><code>requests.request(method, url, **kwargs)</code></p>
+<ul>
+<li><p>method: 请求方式，对应get/head/post/put/patch/delete/options，共7个。</p>
+<ul>
+<li>例：<code>r = requests.request('GET', url, **kwargs)</code></li>
+<li>OPTIONS这个方式用的比较少，所以这里不多做介绍。</li>
+<li>各种请求方式也可以直接利用封装好的方法，如：<code>r = requests.get(url, **kwargs)</code></li>
+</ul></li>
+<li><p>url: 页面的链接地址。</p></li>
+<li><p>**kwargs: 控制访问的参数，均为可选项，共13个。</p>
+<ul>
+<li><p>params: 字典或字节序列，作为参数增加到url中。</p>
+<ul>
+<li>```python &gt;&gt;&gt; import requests &gt;&gt;&gt; url = &quot;http://www.baidu.com&quot; &gt;&gt;&gt; kv = {'key1':'value1', 'key2':'value2'} &gt;&gt;&gt; r = requests.get(url, params=kv) &gt;&gt;&gt; print(r.url) http://www.baidu.com/?key1=value1&amp;key2=value2 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  - 根据上面的这个例子，我们可以看到一些参数添加到了url链接中，那么实际情况下，就可以根据这些关键字筛选部分资源返回来。</span><br><span class="line"></span><br><span class="line">- data:字典，字节序列或文件对象，作为Request的内容。</span><br><span class="line"></span><br><span class="line">  - 作用：向服务器提交资源时使用，把提交的内容存放到指定的url位置中。</span><br><span class="line"></span><br><span class="line">  - &#96;&#96;&#96;python</span><br><span class="line">    &gt;&gt;&gt; body &#x3D; &#39;主体内容&#39;</span><br><span class="line">    &gt;&gt;&gt; r &#x3D; requests.post(url, data&#x3D;body)</span><br></pre></td></tr></table></figure></li>
+</ul></li>
+<li><p>json: JSON格式的数据，作为Request的内容</p>
+<ul>
+<li><p>其作用也可以提交资源</p></li>
+<li><p>```python &gt;&gt;&gt; kv = {'key1':'value1', 'key2':'value2'} &gt;&gt;&gt; r = requests.post(url, json=kv) <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- headers: 字典, HTTP定制头</span><br><span class="line"></span><br><span class="line">  - &#96;&#96;&#96;python</span><br><span class="line">    &gt;&gt;&gt; hd &#x3D; &#123;&#39;user-agent&#39;:&#39;Chrome&#x2F;10&#39;&#125; # 用Chrome10版本访问url</span><br><span class="line">    &gt;&gt;&gt; r &#x3D; requests.get(url, headers&#x3D;hd)</span><br></pre></td></tr></table></figure></p></li>
+<li><p>上述例子中就是模拟用不同浏览器访问url。</p></li>
+</ul></li>
+<li><p>cookies: 字典或CookieJar, Request中的cookie。从HTTP协议中解析cookies。</p></li>
+<li><p>auth: 元组，支持HTTP认证功能。</p>
+<p><em>cookies和auth都是HTTP高级功能</em>。</p></li>
+<li><p>files: 字典类型，传输文件。</p>
+<ul>
+<li>```python &gt;&gt;&gt; fs = {'file':open('data.xls','rb')} &gt;&gt;&gt; r = requests.post(url, files=fs) <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- timeout: 设定超时时间，秒为单位</span><br><span class="line"></span><br><span class="line">  - 如果超时会返回一个timeout异常。</span><br><span class="line"></span><br><span class="line">  - &#96;&#96;&#96;python</span><br><span class="line">    &gt;&gt;&gt; r &#x3D; requests.get(url, timeout&#x3D;10)</span><br></pre></td></tr></table></figure></li>
+</ul></li>
+<li><p>proxies: 字典类型，设定访问代理服务器，可以增加登录认证</p>
+<ul>
+<li>设定访问的代理服务器，这样在访问url链接时，就是用的代理服务器的地址，可以有效防止爬虫逆追踪。</li>
+</ul></li>
+<li><p>allow_redirects: True/False，默认为True，重定向开关。</p></li>
+<li><p>stream: True/False，默认为True，获取内容立即下载开关。</p></li>
+<li><p>verity: True/False默认Ture，认证SSL证书开关。</p></li>
+<li><p>cert: 本地SSL证书路径。</p>
+<p><em>上述四个字段对应的都是一些高级功能，暂不需了解。</em></p></li>
+</ul></li>
+</ul>
+<p>上述介绍了很多，但是其实我们最常使用的就是get方法和head方法，以及一些常见参数的应用。</p>
+<hr />
+<p>哇终于码完了第一篇关于爬虫的文章，希望还有后续啊！！！本来一开始学爬虫是为了解决点自己的一些任务，结果手动任务解决完了，爬虫才学了一个get网页资源。。。</p>
+<p>不过，无论怎么说，爬虫还是蛮有用的，不知道以后还有没有机会用，不过必要时候可以装一装。自己也是懂爬虫的人啦！</p>
+
+    </div>
+
+    
+    
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-hand-peace-o"></i>感谢您的阅读-------------</div>
+    
+</div>
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Amanda Z
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://zymdragonggg.github.io/2020/05/22/%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8ARequests%E5%BA%93%E4%BB%8B%E7%BB%8D/" title="爬虫入门学习-安装以及Requests库介绍">http://zymdragonggg.github.io/2020/05/22/爬虫入门学习-安装以及Requests库介绍/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/" rel="tag"><i class="fa fa-tag"></i> 网络爬虫</a>
+              <a href="/tags/Requests%E5%BA%93/" rel="tag"><i class="fa fa-tag"></i> Requests库</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/05/01/RL-basic/" rel="prev" title="强化学习---入门基础">
+      <i class="fa fa-chevron-left"></i> 强化学习---入门基础
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一准备工作"><span class="nav-text">一、准备工作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装anaconda"><span class="nav-text">1. 安装anaconda</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装爬虫需要的requests库"><span class="nav-text">2. 安装爬虫需要的Requests库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试安装是否成功"><span class="nav-text">3. 测试安装是否成功</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二requests库"><span class="nav-text">二、Requests库</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#response对象"><span class="nav-text">1.Response对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#requests库异常"><span class="nav-text">2.Requests库异常</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#http协议和requests库方法"><span class="nav-text">3. HTTP协议和Requests库方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#requests库方法详解"><span class="nav-text">4. Requests库方法详解</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Amanda Z"
+      src="/images/dragon.png">
+  <p class="site-author-name" itemprop="name">Amanda Z</p>
+  <div class="site-description" itemprop="description">Don not look up to others. I am also a landscape :)</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/zymdragonggg" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;zymdragonggg" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:714977076@qq.com" title="E-Mail → mailto:714977076@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      推荐阅读
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://stepneverstop.github.io/" title="http:&#x2F;&#x2F;stepneverstop.github.io" rel="noopener" target="_blank">Keavnn</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Amanda Z</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">44k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">40 分钟</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+  <script src="//code.tidio.co/0uq3ebmd2rkasldxtojlcbdal0xwqyzj.js"></script>
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'ApyLTspLca1xPfsGb4mL0X55-gzGzoHsz',
+      appKey     : 'NH1fSMzPzNaWst44tEiTq2bo',
+      placeholder: "Just say sth.",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
