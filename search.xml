@@ -1968,4 +1968,72 @@ q_{\pi}(s,a) = \mathbb{E}_{\pi}[R_{t+1} + \gamma q_{\pi}(S_{t+1},A_{t+1})|S_{t} 
         <tag>Requests库</tag>
       </tags>
   </entry>
+  <entry>
+    <title>网络爬虫的问题和行为规范</title>
+    <url>/2020/05/25/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E7%9A%84%E9%97%AE%E9%A2%98%E5%92%8C%E8%A1%8C%E4%B8%BA%E8%A7%84%E8%8C%83/</url>
+    <content><![CDATA[<p>本文简单介绍了网络爬虫的类型、存在的问题、限制形式以及Robots协议内容。</p>
+<a id="more"></a>
+<p>继上一篇有关<a href="https://zymdragonggg.github.io/2020/05/22/爬虫入门学习-安装以及Requests库介绍/">爬虫基础及Requests库介绍</a>后，继续学习廖雪峰老师的课，感觉讲的非常系统。继续做笔记～</p>
+<h1 id="一.-网络爬虫类型">一. 网络爬虫类型</h1>
+<ol type="1">
+<li><p>目的：爬取网页，玩转网页</p>
+<p>特征：小规模，数据量小爬取速度不敏感</p>
+<p>方法：Requests库</p></li>
+<li><p>目的：爬取网站，爬取系列网站</p>
+<p>特征：中规模，数据规模较大，爬取速度敏感</p>
+<p>方法：Scrapy库</p></li>
+<li><p>目的：爬取全网</p>
+<p>特征：大规模，搜索引擎，爬取速度关键</p>
+<p>方法：定制开发</p></li>
+</ol>
+<h1 id="二.-爬虫引发的问题">二. 爬虫引发的问题</h1>
+<p>网络爬虫带来便利的同时也造成了很多风险：</p>
+<ol type="1">
+<li>超出服务器服务能力，对服务器性能造成“骚扰”</li>
+<li>内容法律风险</li>
+<li>个人隐私泄露</li>
+</ol>
+<p>由于存在种种问题，这就需要网站都对爬虫进行限制。</p>
+<h1 id="三.-爬虫的限制">三. 爬虫的限制</h1>
+<p>限制方法有以下两种：</p>
+<ul>
+<li>来源审查：判断user-agent进行限制
+<ul>
+<li>检查来访HTTP协议头的User-Agent，只响应浏览器或友好爬虫访问。</li>
+</ul></li>
+<li>发布公告：Robots协议
+<ul>
+<li>告知爬取策略，要求爬虫遵守。</li>
+</ul></li>
+</ul>
+<h1 id="四.-robots协议">四. Robots协议</h1>
+<h2 id="robots协议基本概念">1. Robots协议基本概念</h2>
+<p>Robots Exclusion Standard 网络爬虫排除标准</p>
+<p>作用：网站告知爬虫哪些页面可以抓取，哪些不可以。</p>
+<p>形式：在网站根目录下的<code>robots.txt</code>文件。</p>
+<p>Robots协议基本语法：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">User-agent: *</span><br><span class="line">Disallow: &#x2F;</span><br></pre></td></tr></table></figure>
+<p>案例：京东 https://www.jd.com/robots.txt</p>
+<p>第一个红框代表：任何访问形式都需要遵守以下协议。</p>
+<p>第二个红框代表：以下几种爬虫不能访问任何资源。</p>
+<figure>
+<img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gf4jiedvomj307e07dwex.jpg" alt="image-20200525113453620" /><figcaption>image-20200525113453620</figcaption>
+</figure>
+<p>如果没有<code>robots.txt</code>文件，那么说明可以任意爬取。</p>
+<h2 id="遵守方式">2. 遵守方式</h2>
+<p>网络爬虫：自动或人工识别robots.txt协议，在进行内容爬取。</p>
+<p>约束性：Robots协议是建议但是非约束性的，网络爬虫可以不遵守，但是存在法律风险。</p>
+<p>Tips：类人类行为可不参考Robots协议，简单就是说访问量很小。（我寻思这就是打造一个可以慢吞吞但类人的爬虫哦！）</p>
+<hr />
+<p>这次的笔记内容比较轻松好理解，学起来很快，突然对爬虫产生了浓厚的兴趣。不过似乎现在很多反爬虫什么的。相信随着科技的发展，很多东西在给我们带来便利的同时，也会被逐渐限制。或许等某一天我再看自己写的这个博客，Robots协议变得更加有限制性吧。</p>
+<p>じゃね〜</p>
+]]></content>
+      <categories>
+        <category>网络爬虫</category>
+      </categories>
+      <tags>
+        <tag>网络爬虫</tag>
+        <tag>Robots协议</tag>
+      </tags>
+  </entry>
 </search>
