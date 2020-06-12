@@ -2036,4 +2036,40 @@ q_{\pi}(s,a) = \mathbb{E}_{\pi}[R_{t+1} + \gamma q_{\pi}(S_{t+1},A_{t+1})|S_{t} 
         <tag>Robots协议</tag>
       </tags>
   </entry>
+  <entry>
+    <title>网络爬虫入门实践项目</title>
+    <url>/2020/06/12/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8%E5%AE%9E%E8%B7%B5%E9%A1%B9%E7%9B%AE/</url>
+    <content><![CDATA[<p>本文介绍一些入门的实践项目，非常简单的几个例子。</p>
+<a id="more"></a>
+<p>继上之前有关<a href="https://zymdragonggg.github.io/2020/05/22/爬虫入门学习-安装以及Requests库介绍/">爬虫基础及Requests库介绍</a>以及<a href="%5Bhttps://zymdragonggg.github.io/2020/05/25/网络爬虫的问题和行为规范">网络爬虫的问题和行为规范</a>介绍后，今天开始进行三个实践小项目。</p>
+<h1 id="实例1京东商品页面爬取">实例1:京东商品页面爬取</h1>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getHTMLText</span><span class="params">(url, hd)</span>:</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        r = requests.get(url, headers = hd)</span><br><span class="line">        r.raise_for_status()</span><br><span class="line">        r.encoding = r.apparent_encoding</span><br><span class="line">        <span class="keyword">return</span> r.text[:<span class="number">1000</span>] <span class="comment">#不要显示太多，只显示前1000个字符</span></span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"产生异常"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    url = <span class="string">"https://item.jd.com/4406761.html"</span> <span class="comment">#magic keyboard2</span></span><br><span class="line">    hd = &#123;<span class="string">'user-agent'</span>:<span class="string">'Mozilla/5.0'</span>&#125; <span class="comment"># 注意这里需要加入user-agent，要不然返回的信息似乎是要登陆。</span></span><br><span class="line">    print(getHTMLText(url, hd))</span><br></pre></td></tr></table></figure>
+<p>注意，如果不指定headers字段，那么是爬不到结果的，这是因为当我们直接用requests库爬取时，会告知网页我们使用的是requests库，利用<code>r.requests.headers</code>可以看到<code>user-agent</code>字段的内容是<code>'python-requests/版本号'</code>。</p>
+<p>由于有些网站不允许爬虫，于是对其进行了限制。不过为了爬取，我们可以采取指定<code>user-agent</code>字段为一个伪装的浏览器。这就是上面hd那一行代码的由来。这样我们爬取的时候网页会以为我们是一个浏览器访问的。</p>
+<h1 id="实例2-搜索引擎关键词提交">实例2: 搜索引擎关键词提交</h1>
+<p>百度的关键词接口：</p>
+<p><code>http://www.baidu.com/s?wd=keyword</code></p>
+<p>360的关键词接口：</p>
+<p><code>http://www.so.com/s?q=keyword</code></p>
+<p>只要构造这样的url就可以完成关键字提交。可以利用params可以向url中增加内容。下面以360搜索为例（百度搜索根据现有知识无法做到爬取网页，必须要验证，360目前还ok）</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getHTMLText</span><span class="params">(url, hd, kv)</span>:</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        r = requests.get(url, headers = hd, params = kv)</span><br><span class="line">        print(r.request.url) <span class="comment"># 可以利用这个语句获取当前requests的url是什么</span></span><br><span class="line">        r.raise_for_status()</span><br><span class="line">        print(len(r.text))</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        print(<span class="string">'爬取异常'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    hd = &#123;<span class="string">'user-agent'</span>:<span class="string">'Mozilla/5.0'</span>&#125;</span><br><span class="line">    kv = &#123;<span class="string">'q'</span>:<span class="string">'Python'</span>&#125; <span class="comment"># 给出搜索词</span></span><br><span class="line">    url = <span class="string">'https://www.so.com/s'</span></span><br><span class="line">    getHTMLText(url, hd, kv)</span><br></pre></td></tr></table></figure>
+<p>返回的输出结果为：</p>
+<p><code>&gt;&gt;&gt; https://www.so.com/s?q=Python</code></p>
+<p><code>&gt;&gt;&gt; 319088</code></p>
+<h1 id="实例3-网络图片的爬取">实例3: 网络图片的爬取</h1>
+<p>爬取的图片来自中国国家地理网站。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests </span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    url = <span class="string">'http://img0.dili360.com/ga/M00/48/CB/wKgBzFmeOaWAAg7SAAMP0b_hOVw041.tub.jpg'</span></span><br><span class="line">    root = <span class="string">'./'</span></span><br><span class="line">    path = root + url.split(<span class="string">'/'</span>)[<span class="number">-1</span>]    <span class="comment"># 获得网页中图片的名字，即.jpg前面的内容</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(root):    <span class="comment"># 如果根目录不存在，就创建一个</span></span><br><span class="line">            os.mkdir(root)</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(path):    <span class="comment"># 如果路径不存在，就读取</span></span><br><span class="line">            r = requests.get(url)</span><br><span class="line">            <span class="keyword">with</span> open(path, <span class="string">'wb'</span>) <span class="keyword">as</span> f: <span class="comment"># 读入到路径中</span></span><br><span class="line">                f.write(r.content)</span><br><span class="line">                f.close()</span><br><span class="line">                print(<span class="string">'文件保存成功'</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            print(<span class="string">'文件已存在'</span>)</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        print(<span class="string">'读取失败'</span>)</span><br></pre></td></tr></table></figure>
+<p>经过三个小实例的学习，其实爬虫主要就是解析网站，然后爬取相应的内容。</p>
+<p>感谢北京理工大学老师的课程，虽然课程可能有些旧，好多网页根据课程教的已经不好爬到东西了，但是感觉真的是很清晰明了了。</p>
+<hr />
+<p>接下来似乎就可以进阶了，希望自己能在7月到来前把基础学个差不多，最近感觉有点心急，想学的东西太多，心急吃不了热豆腐，慢慢积累不断丰富自己吧。</p>
+<p>加油：）</p>
+]]></content>
+      <categories>
+        <category>网络爬虫</category>
+      </categories>
+      <tags>
+        <tag>网络爬虫</tag>
+      </tags>
+  </entry>
 </search>
