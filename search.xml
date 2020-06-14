@@ -2072,4 +2072,66 @@ q_{\pi}(s,a) = \mathbb{E}_{\pi}[R_{t+1} + \gamma q_{\pi}(S_{t+1},A_{t+1})|S_{t} 
         <tag>网络爬虫</tag>
       </tags>
   </entry>
+  <entry>
+    <title>为VScode中LaTex配置单词语法检查</title>
+    <url>/2020/06/14/%E4%B8%BAVScode%E4%B8%ADLaTex%E9%85%8D%E7%BD%AE%E5%8D%95%E8%AF%8D%E8%AF%AD%E6%B3%95%E6%A3%80%E6%9F%A5/</url>
+    <content><![CDATA[<p>本文提供如何利用VScode的拓展包实现对拼写错误的检查的功能。</p>
+<a id="more"></a>
+<p>以前用LaTex写论文用WinEdt软件，这是Windows平台下可用于编辑LaTex的一个编辑器，能够自动检查拼写错误，在Mac上，我用了VScode作为编辑器写LaxTex，但是并不对拼写错误进行检查。下面介绍如何在VScode上检查语法错误。</p>
+<hr />
+<h1 id="直接安装插件"><strong>直接安装插件</strong></h1>
+<ul>
+<li>打开Extensions，输入搜索LTeX</li>
+</ul>
+<figure>
+<img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfrzn3io3cj30k303vgm7.jpg" alt="image-20200614182057704" /><figcaption>image-20200614182057704</figcaption>
+</figure>
+<ul>
+<li>安装插件
+<ul>
+<li>它会自动下载安装一个ltex-Is的依赖包。</li>
+</ul></li>
+</ul>
+<blockquote>
+<p>当用LTex检查Latex文档时，会将其传给ltex-Is，ltex-Is是用Java编写的，对文档进行解析后传递给LanguageTool，这之后实际进行检查的就是这个LanguageTool了。不LanguageTool不用额外的下载安装了，看介绍似乎是说已经在LTex新版中加入进来了。</p>
+</blockquote>
+<h1 id="可能存在的问题"><strong>可能存在的问题</strong></h1>
+<p>有时候可能是网络原因，可能需要翻墙，所以下载ltex-Is会很慢，可以采取<a href="https://github.com/valentjn/vscode-ltex/releases" target="_blank" rel="noopener">offline安装</a>，</p>
+<ul>
+<li>进入到上述链接，根据自己的系统版本下载相应的ltex-Is安装包。</li>
+</ul>
+<figure>
+<img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfrzwwlyx5j30mi07aaax.jpg" alt="image-20200614183026950" /><figcaption>image-20200614183026950</figcaption>
+</figure>
+<ul>
+<li>安装ltex-ls
+<ul>
+<li>点击设置中的command Palette。</li>
+<li><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfrzxx95jaj307p08itbi.jpg" alt="image-20200614183124661" /></li>
+<li>通过命令：<code>Extensions: Install from VSIX...</code>安装下载下来的包。</li>
+</ul></li>
+</ul>
+<figure>
+<img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfs009tod6j30gg01mmxa.jpg" alt="image-20200614183340977" /><figcaption>image-20200614183340977</figcaption>
+</figure>
+<p>至此就可以了。</p>
+<p>看看效果：</p>
+<p>比如提示transmit可能有错误，他会给出修改建议，语法也能修改。</p>
+<figure>
+<img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfs026wnvhj30hl04nt9t.jpg" alt="image-20200614183530924" /><figcaption>image-20200614183530924</figcaption>
+</figure>
+<p>如果单纯想看看怎么改这个词，看不到提示，可以选中那个单词，这时旁边就会出现一个小灯泡，点击小灯泡就给出修改意见了，如下：</p>
+<figure>
+<img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfs08knhc4j306g05tjt7.jpg" alt="image-20200614184139568" /><figcaption>image-20200614184139568</figcaption>
+</figure>
+<p>Nice,非常好用！</p>
+]]></content>
+      <categories>
+        <category>Tips</category>
+      </categories>
+      <tags>
+        <tag>LaTex</tag>
+        <tag>VScode</tag>
+      </tags>
+  </entry>
 </search>
