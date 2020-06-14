@@ -2083,9 +2083,7 @@ q_{\pi}(s,a) = \mathbb{E}_{\pi}[R_{t+1} + \gamma q_{\pi}(S_{t+1},A_{t+1})|S_{t} 
 <ul>
 <li>打开Extensions，输入搜索LTeX</li>
 </ul>
-<figure>
-<img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfrzn3io3cj30k303vgm7.jpg" alt="image-20200614182057704" /><figcaption>image-20200614182057704</figcaption>
-</figure>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfrzn3io3cj30k303vgm7.jpg" /></p>
 <ul>
 <li>安装插件
 <ul>
@@ -2100,30 +2098,22 @@ q_{\pi}(s,a) = \mathbb{E}_{\pi}[R_{t+1} + \gamma q_{\pi}(S_{t+1},A_{t+1})|S_{t} 
 <ul>
 <li>进入到上述链接，根据自己的系统版本下载相应的ltex-Is安装包。</li>
 </ul>
-<figure>
-<img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfrzwwlyx5j30mi07aaax.jpg" alt="image-20200614183026950" /><figcaption>image-20200614183026950</figcaption>
-</figure>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfrzwwlyx5j30mi07aaax.jpg" /></p>
 <ul>
 <li>安装ltex-ls
 <ul>
 <li>点击设置中的command Palette。</li>
-<li><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfrzxx95jaj307p08itbi.jpg" alt="image-20200614183124661" /></li>
+<li><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfrzxx95jaj307p08itbi.jpg" /></li>
 <li>通过命令：<code>Extensions: Install from VSIX...</code>安装下载下来的包。</li>
 </ul></li>
 </ul>
-<figure>
-<img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfs009tod6j30gg01mmxa.jpg" alt="image-20200614183340977" /><figcaption>image-20200614183340977</figcaption>
-</figure>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfs009tod6j30gg01mmxa.jpg" /></p>
 <p>至此就可以了。</p>
 <p>看看效果：</p>
 <p>比如提示transmit可能有错误，他会给出修改建议，语法也能修改。</p>
-<figure>
-<img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfs026wnvhj30hl04nt9t.jpg" alt="image-20200614183530924" /><figcaption>image-20200614183530924</figcaption>
-</figure>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfs026wnvhj30hl04nt9t.jpg" /></p>
 <p>如果单纯想看看怎么改这个词，看不到提示，可以选中那个单词，这时旁边就会出现一个小灯泡，点击小灯泡就给出修改意见了，如下：</p>
-<figure>
-<img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfs08knhc4j306g05tjt7.jpg" alt="image-20200614184139568" /><figcaption>image-20200614184139568</figcaption>
-</figure>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfs08knhc4j306g05tjt7.jpg" /></p>
 <p>Nice,非常好用！</p>
 ]]></content>
       <categories>
