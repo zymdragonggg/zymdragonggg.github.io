@@ -2124,4 +2124,40 @@ q_{\pi}(s,a) = \mathbb{E}_{\pi}[R_{t+1} + \gamma q_{\pi}(S_{t+1},A_{t+1})|S_{t} 
         <tag>VScode</tag>
       </tags>
   </entry>
+  <entry>
+    <title>python3中的基本数据类型和数据结构</title>
+    <url>/2020/07/23/python%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%8F%8A%E7%89%B9%E6%80%A7/</url>
+    <content><![CDATA[<p>本文主要介绍了python3的基本数据类型以及基本数据结构，详细介绍了几种基本数据结构的特性以及他们的区别，还涉及了一些不同版本python之间的差别。</p>
+<a id="more"></a>
+<h1 id="一python3中的基本数据类型">一、python3中的基本数据类型</h1>
+<p><strong>不可变数据类型</strong>：Number（数字）、String（字符串）、Tuple（元组）</p>
+<p><strong>可变数据类型</strong>：List（列表）、Dictionary（字典）、Set（集合）</p>
+<h1 id="二python3中的基本数据结构">二、python3中的基本数据结构</h1>
+<p>基本数据结构可以分为<strong>序列结构和散列结构</strong>。</p>
+<ul>
+<li><p><strong>序列结构</strong></p>
+<ul>
+<li><p><strong>list</strong>：列表可以看做是一种数组，Python列表中的元素可以是任何数据类型，如，数字、字符串等等。其实现是利用链表实现的，所以列表是有序的。</p></li>
+<li><p><strong>tuple</strong>：元组和列表一样，唯一的区别是，元组内的元素一旦创建，是不可修改的，也不可追加。并且元组使用小括号创建。同样的元组也是有序的。</p></li>
+</ul></li>
+<li><p><strong>散列结构</strong></p>
+<p><em>散列结构中，元素顺序是不重要的，顺序不同的散列，还是同一个散列。散列结构有set、dict。</em></p>
+<ul>
+<li><p><strong>set</strong>：集合是由不重复元素组成的无序的集。其实现是利用hash表实现的，所以集合是无序的。</p></li>
+<li><p><strong>dict</strong>：字典由键值对组成，字典是可变对象但字典的键的唯一的，是不可变对象。</p>
+<p>需要注意的是：python3.6版本以前的字典都是无序的，如果想要实现有序字典需要利用OrderDict()。而3.6版本以后，对字典进行了改进，所以保证了有序。</p>
+<p>字典的无序：数据存进字典的顺序跟取出的字典的顺序不一致。</p></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> collections</span><br><span class="line">d1=&#123;&#125;</span><br><span class="line">d1=collections.OrderedDict()  <span class="comment">#将普通字典转换为有序字典</span></span><br><span class="line">d1[<span class="string">'a'</span>]=<span class="string">'A'</span></span><br><span class="line">d1[<span class="string">'b'</span>]=<span class="string">'B'</span></span><br><span class="line">d1[<span class="string">'c'</span>]=<span class="string">'C'</span></span><br><span class="line">d1[<span class="string">'d'</span>]=<span class="string">'D'</span></span><br><span class="line"><span class="keyword">for</span> k,v <span class="keyword">in</span> d1.items():</span><br><span class="line">    <span class="keyword">print</span> k,v</span><br></pre></td></tr></table></figure></li>
+</ul>
+<hr />
+<p>之前使用python都是不会了就查，所以基础太薄弱了，故开始学习python的相关基础知识，希望巩固自己的基础知识，也可以帮助大家！：）</p>
+]]></content>
+      <categories>
+        <category>python知识点</category>
+      </categories>
+      <tags>
+        <tag>python3</tag>
+      </tags>
+  </entry>
 </search>
