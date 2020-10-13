@@ -22,30 +22,50 @@
     var CONFIG = {"hostname":"zymdragonggg.github.io","root":"/","scheme":"Mist","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Don not look up to others. I am also a landscape :)">
-<meta property="og:type" content="website">
-<meta property="og:title" content="ZYM&#39;Blog">
-<meta property="og:url" content="http://zymdragonggg.github.io/index.html">
+  <meta name="description" content="1. GIL及多线程相关  背景概念：  支持多线程：不同线程对共享资源访问的互斥 多线程带来的问题：多线程是可以共享变量的，同时执行可能会导致数据被污染造成数据混乱，这是线程的不安全性，引入互斥锁。 互斥锁：确保某段关键的代码数据只能有一个线程从头到尾完整执行，保证了这段代码数据的安全性，但是这也会导致死锁。 死锁：多个子线程在等待对方解除占用状态，但是都不先解锁，互相等待，导致死锁。  pyt">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python面试知识点总结（二）">
+<meta property="og:url" content="http://zymdragonggg.github.io/2020/10/13/python%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93%EF%BC%88%E4%BA%8C%EF%BC%89/index.html">
 <meta property="og:site_name" content="ZYM&#39;Blog">
-<meta property="og:description" content="Don not look up to others. I am also a landscape :)">
+<meta property="og:description" content="1. GIL及多线程相关  背景概念：  支持多线程：不同线程对共享资源访问的互斥 多线程带来的问题：多线程是可以共享变量的，同时执行可能会导致数据被污染造成数据混乱，这是线程的不安全性，引入互斥锁。 互斥锁：确保某段关键的代码数据只能有一个线程从头到尾完整执行，保证了这段代码数据的安全性，但是这也会导致死锁。 死锁：多个子线程在等待对方解除占用状态，但是都不先解锁，互相等待，导致死锁。  pyt">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2020/09/03/FAkYdj1mar5bliZ.png">
+<meta property="og:image" content="https://i.loli.net/2020/09/03/a4uMQZg1Bycjh9s.png">
+<meta property="og:image" content="https://i.loli.net/2020/08/26/CHdG9iS7r5heyBn.png">
+<meta property="og:image" content="http://zymdragonggg.github.io/Users/m/Documents/Blog/source/_posts/C:/Users/M/AppData/Roaming/Typora/typora-user-images/image-20200806100010605.png">
+<meta property="og:image" content="https://i.loli.net/2020/08/26/AausiXQr9hq4ot3.png">
+<meta property="og:image" content="https://img-blog.csdn.net/20180122142356120?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvZmVpa29uMg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="https://i.loli.net/2020/08/26/mEMZXS94Kv7qTBW.png">
+<meta property="og:image" content="https://i.loli.net/2020/09/03/I8DlkJKPVAwjR9W.png">
+<meta property="og:image" content="https://i.loli.net/2020/08/26/nfJUcdbuEFA1jW6.png">
+<meta property="og:image" content="https://i.loli.net/2020/08/26/EyLGI6zfUqe38JT.png">
+<meta property="og:image" content="https://i.loli.net/2020/08/26/lThZ967xImDbiaQ.png">
+<meta property="og:image" content="https://i.loli.net/2020/08/26/rPMxhA56gbQBo2u.png">
+<meta property="og:image" content="https://img-blog.csdn.net/20170516000644044?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvamluaXhpbg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
+<meta property="og:image" content="https://i.loli.net/2020/08/26/UcwIlK8XBT6oOLu.png">
+<meta property="og:image" content="https://i.loli.net/2020/09/05/hEDdqnaArXiIUgF.png">
+<meta property="article:published_time" content="2020-10-13T11:27:13.000Z">
+<meta property="article:modified_time" content="2020-10-13T11:59:01.728Z">
 <meta property="article:author" content="Amanda Z">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="面试">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2020/09/03/FAkYdj1mar5bliZ.png">
 
-<link rel="canonical" href="http://zymdragonggg.github.io/">
+<link rel="canonical" href="http://zymdragonggg.github.io/2020/10/13/python%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93%EF%BC%88%E4%BA%8C%EF%BC%89/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>ZYM'Blog - To learn, to be strong</title>
+  <title>python面试知识点总结（二） | ZYM'Blog</title>
   
 
 
@@ -191,11 +211,11 @@
         <div class="content-wrap">
           
 
-          <div class="content index">
+          <div class="content post">
             
 
   <div class="posts-expand">
-        
+      
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
@@ -211,10 +231,9 @@
       <meta itemprop="name" content="ZYM'Blog">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/10/13/python%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93%EF%BC%88%E4%BA%8C%EF%BC%89/" class="post-title-link" itemprop="url">python面试知识点总结（二）</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          python面试知识点总结（二）
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -237,6 +256,13 @@
             </span>
 
           
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
   
   <span class="post-meta-item">
     
@@ -276,7 +302,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="gil及多线程相关">1. GIL及多线程相关</h2>
+        <h2 id="gil及多线程相关">1. GIL及多线程相关</h2>
 <ul>
 <li><p><strong>背景概念：</strong></p>
 <ul>
@@ -703,952 +729,53 @@
 <p>2,改变PYTHONPATH,这种设置方法永久有效:</p>
 <p>在这种情况下,可以通过在sys.path列表显示的路径中<a href="https://docs.python.org/3/install/index.html#modifying-python-s-search-path" target="_blank" rel="noopener">添加.pth文件</a>来实现</p>
 
-      
     </div>
 
     
     
+    <div>
     
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-hand-peace-o"></i>感谢您的阅读-------------</div>
+    
+</div>
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Amanda Z
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://zymdragonggg.github.io/2020/10/13/python%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93%EF%BC%88%E4%BA%8C%EF%BC%89/" title="python面试知识点总结（二）">http://zymdragonggg.github.io/2020/10/13/python面试知识点总结（二）/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
+          
+          <div class="post-tags">
+              <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> python</a>
+              <a href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag"><i class="fa fa-tag"></i> 面试</a>
+          </div>
 
         
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://zymdragonggg.github.io/2020/10/07/python%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%80%EF%BC%89/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/dragon.png">
-      <meta itemprop="name" content="Amanda Z">
-      <meta itemprop="description" content="Don not look up to others. I am also a landscape :)">
-    </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZYM'Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/10/07/python%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%80%EF%BC%89/" class="post-title-link" itemprop="url">python面试知识点总结（一）</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-10-07 21:53:16 / 修改时间：22:28:05" itemprop="dateCreated datePublished" datetime="2020-10-07T21:53:16+08:00">2020-10-07</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/python%E7%9F%A5%E8%AF%86%E7%82%B9/" itemprop="url" rel="index"><span itemprop="name">python知识点</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/10/07/python%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%80%EF%BC%89/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/10/07/python%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%80%EF%BC%89/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>5.6k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>5 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>秋招以来，为了找工作又学习了很多python相关的知识，给大家分享一下，里面好多内容都是我东拼西凑出来的（如果是借鉴了其他博客的，希望大家可以指出，我会标注上），感觉都是比较常见的或者被问到的。</p>
-<p>希望这篇分享会对大家找工作有所帮助～</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/10/07/python%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%80%EF%BC%89/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/10/07/python%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%80%EF%BC%89/" rel="prev" title="python面试知识点总结（一）">
+      <i class="fa fa-chevron-left"></i> python面试知识点总结（一）
+    </a></div>
+      <div class="post-nav-item"></div>
     </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
       </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://zymdragonggg.github.io/2020/07/23/python%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%8F%8A%E7%89%B9%E6%80%A7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/dragon.png">
-      <meta itemprop="name" content="Amanda Z">
-      <meta itemprop="description" content="Don not look up to others. I am also a landscape :)">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZYM'Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/07/23/python%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%8F%8A%E7%89%B9%E6%80%A7/" class="post-title-link" itemprop="url">python3中的基本数据类型和数据结构</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-07-23 21:55:20 / 修改时间：22:21:14" itemprop="dateCreated datePublished" datetime="2020-07-23T21:55:20+08:00">2020-07-23</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/python%E7%9F%A5%E8%AF%86%E7%82%B9/" itemprop="url" rel="index"><span itemprop="name">python知识点</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
     
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/07/23/python%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%8F%8A%E7%89%B9%E6%80%A7/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/07/23/python%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%8F%8A%E7%89%B9%E6%80%A7/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>814</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>本文主要介绍了python3的基本数据类型以及基本数据结构，详细介绍了几种基本数据结构的特性以及他们的区别，还涉及了一些不同版本python之间的差别。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/07/23/python%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%8F%8A%E7%89%B9%E6%80%A7/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://zymdragonggg.github.io/2020/06/14/%E4%B8%BAVScode%E4%B8%ADLaTex%E9%85%8D%E7%BD%AE%E5%8D%95%E8%AF%8D%E8%AF%AD%E6%B3%95%E6%A3%80%E6%9F%A5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/dragon.png">
-      <meta itemprop="name" content="Amanda Z">
-      <meta itemprop="description" content="Don not look up to others. I am also a landscape :)">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZYM'Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/06/14/%E4%B8%BAVScode%E4%B8%ADLaTex%E9%85%8D%E7%BD%AE%E5%8D%95%E8%AF%8D%E8%AF%AD%E6%B3%95%E6%A3%80%E6%9F%A5/" class="post-title-link" itemprop="url">为VScode中LaTex配置单词语法检查</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-06-14 23:03:17 / 修改时间：23:11:39" itemprop="dateCreated datePublished" datetime="2020-06-14T23:03:17+08:00">2020-06-14</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Tips/" itemprop="url" rel="index"><span itemprop="name">Tips</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/06/14/%E4%B8%BAVScode%E4%B8%ADLaTex%E9%85%8D%E7%BD%AE%E5%8D%95%E8%AF%8D%E8%AF%AD%E6%B3%95%E6%A3%80%E6%9F%A5/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/06/14/%E4%B8%BAVScode%E4%B8%ADLaTex%E9%85%8D%E7%BD%AE%E5%8D%95%E8%AF%8D%E8%AF%AD%E6%B3%95%E6%A3%80%E6%9F%A5/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>631</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>本文提供如何利用VScode的拓展包实现对拼写错误的检查的功能。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/06/14/%E4%B8%BAVScode%E4%B8%ADLaTex%E9%85%8D%E7%BD%AE%E5%8D%95%E8%AF%8D%E8%AF%AD%E6%B3%95%E6%A3%80%E6%9F%A5/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://zymdragonggg.github.io/2020/06/12/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8%E5%AE%9E%E8%B7%B5%E9%A1%B9%E7%9B%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/dragon.png">
-      <meta itemprop="name" content="Amanda Z">
-      <meta itemprop="description" content="Don not look up to others. I am also a landscape :)">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZYM'Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/06/12/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8%E5%AE%9E%E8%B7%B5%E9%A1%B9%E7%9B%AE/" class="post-title-link" itemprop="url">网络爬虫入门实践项目</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-06-12 21:26:59 / 修改时间：21:42:13" itemprop="dateCreated datePublished" datetime="2020-06-12T21:26:59+08:00">2020-06-12</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/" itemprop="url" rel="index"><span itemprop="name">网络爬虫</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/06/12/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8%E5%AE%9E%E8%B7%B5%E9%A1%B9%E7%9B%AE/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/06/12/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8%E5%AE%9E%E8%B7%B5%E9%A1%B9%E7%9B%AE/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.9k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>本文介绍一些入门的实践项目，非常简单的几个例子。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/06/12/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8%E5%AE%9E%E8%B7%B5%E9%A1%B9%E7%9B%AE/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://zymdragonggg.github.io/2020/05/25/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E7%9A%84%E9%97%AE%E9%A2%98%E5%92%8C%E8%A1%8C%E4%B8%BA%E8%A7%84%E8%8C%83/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/dragon.png">
-      <meta itemprop="name" content="Amanda Z">
-      <meta itemprop="description" content="Don not look up to others. I am also a landscape :)">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZYM'Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/05/25/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E7%9A%84%E9%97%AE%E9%A2%98%E5%92%8C%E8%A1%8C%E4%B8%BA%E8%A7%84%E8%8C%83/" class="post-title-link" itemprop="url">网络爬虫的问题和行为规范</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-05-25 12:28:32 / 修改时间：12:38:48" itemprop="dateCreated datePublished" datetime="2020-05-25T12:28:32+08:00">2020-05-25</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/" itemprop="url" rel="index"><span itemprop="name">网络爬虫</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/05/25/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E7%9A%84%E9%97%AE%E9%A2%98%E5%92%8C%E8%A1%8C%E4%B8%BA%E8%A7%84%E8%8C%83/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/05/25/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E7%9A%84%E9%97%AE%E9%A2%98%E5%92%8C%E8%A1%8C%E4%B8%BA%E8%A7%84%E8%8C%83/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>945</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>本文简单介绍了网络爬虫的类型、存在的问题、限制形式以及Robots协议内容。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/05/25/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E7%9A%84%E9%97%AE%E9%A2%98%E5%92%8C%E8%A1%8C%E4%B8%BA%E8%A7%84%E8%8C%83/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://zymdragonggg.github.io/2020/05/22/%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8ARequests%E5%BA%93%E4%BB%8B%E7%BB%8D/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/dragon.png">
-      <meta itemprop="name" content="Amanda Z">
-      <meta itemprop="description" content="Don not look up to others. I am also a landscape :)">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZYM'Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/05/22/%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8ARequests%E5%BA%93%E4%BB%8B%E7%BB%8D/" class="post-title-link" itemprop="url">爬虫入门学习-安装以及Requests库介绍</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-05-22 19:06:23 / 修改时间：19:13:56" itemprop="dateCreated datePublished" datetime="2020-05-22T19:06:23+08:00">2020-05-22</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/" itemprop="url" rel="index"><span itemprop="name">网络爬虫</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/05/22/%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8ARequests%E5%BA%93%E4%BB%8B%E7%BB%8D/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/05/22/%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8ARequests%E5%BA%93%E4%BB%8B%E7%BB%8D/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>6.2k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>6 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>本文主要是为了记录网络爬虫学习过程中的笔记和自己的一丢丢理解，希望可以通过本文以及如果有后续文章的话，能够掌握网络数据爬虫和网页解析的基本能力。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/05/22/%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8ARequests%E5%BA%93%E4%BB%8B%E7%BB%8D/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://zymdragonggg.github.io/2020/05/01/RL-basic/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/dragon.png">
-      <meta itemprop="name" content="Amanda Z">
-      <meta itemprop="description" content="Don not look up to others. I am also a landscape :)">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZYM'Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/05/01/RL-basic/" class="post-title-link" itemprop="url">强化学习---入门基础</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-05-01 16:57:41 / 修改时间：22:58:54" itemprop="dateCreated datePublished" datetime="2020-05-01T16:57:41+08:00">2020-05-01</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">强化学习</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/05/01/RL-basic/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/05/01/RL-basic/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>5.8k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>5 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>本文主要介绍强化学习的入门基础知识。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/05/01/RL-basic/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://zymdragonggg.github.io/2020/04/30/%E7%94%A8%E6%88%B7%E4%BD%93%E9%AA%8C%E8%A6%81%E7%B4%A0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/dragon.png">
-      <meta itemprop="name" content="Amanda Z">
-      <meta itemprop="description" content="Don not look up to others. I am also a landscape :)">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZYM'Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/30/%E7%94%A8%E6%88%B7%E4%BD%93%E9%AA%8C%E8%A6%81%E7%B4%A0/" class="post-title-link" itemprop="url">《用户体验要素》读书笔记</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-04-30 18:07:08 / 修改时间：18:51:32" itemprop="dateCreated datePublished" datetime="2020-04-30T18:07:08+08:00">2020-04-30</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%BA%A7%E5%93%81%E7%9F%A5%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">产品知识</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/04/30/%E7%94%A8%E6%88%B7%E4%BD%93%E9%AA%8C%E8%A6%81%E7%B4%A0/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/04/30/%E7%94%A8%E6%88%B7%E4%BD%93%E9%AA%8C%E8%A6%81%E7%B4%A0/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>4.2k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>4 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>本文主要梳理了《用户体验要素》一书的内容，主要帮助自己理清思路，同时希望能帮助大家一起对这本书有一个较为全面的认知。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/04/30/%E7%94%A8%E6%88%B7%E4%BD%93%E9%AA%8C%E8%A6%81%E7%B4%A0/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://zymdragonggg.github.io/2020/04/18/%E3%80%8A%E5%90%AF%E7%A4%BA%E5%BD%95%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/dragon.png">
-      <meta itemprop="name" content="Amanda Z">
-      <meta itemprop="description" content="Don not look up to others. I am also a landscape :)">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZYM'Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/18/%E3%80%8A%E5%90%AF%E7%A4%BA%E5%BD%95%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">《启示录 打造用户喜爱的产品》读书笔记</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-04-18 15:29:27 / 修改时间：17:48:22" itemprop="dateCreated datePublished" datetime="2020-04-18T15:29:27+08:00">2020-04-18</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%BA%A7%E5%93%81%E7%9F%A5%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">产品知识</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/04/18/%E3%80%8A%E5%90%AF%E7%A4%BA%E5%BD%95%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/04/18/%E3%80%8A%E5%90%AF%E7%A4%BA%E5%BD%95%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>4.6k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>4 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>本文是对《启示录 打造用户喜爱的产品》一书的梳理，对书中的内容进行了摘抄和总结，是个人认为比较重要的一些内容。从大的层面上解析这本书，意图是帮助自己，也希望同样对产品感兴趣的小伙伴看到这篇文章也能有所获。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/04/18/%E3%80%8A%E5%90%AF%E7%A4%BA%E5%BD%95%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
   </article>
   
   
@@ -1656,15 +783,10 @@
 
   </div>
 
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
-
-
 
           </div>
           
+    <div class="comments" id="valine-comments"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -1711,6 +833,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#gil及多线程相关"><span class="nav-text">1. GIL及多线程相关</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#python多线程多进程实践"><span class="nav-text">2. python多线程、多进程实践</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建进程对象"><span class="nav-text">创建进程对象</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#启动进程执行任务"><span class="nav-text">启动进程执行任务</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#map函数和reduce函数"><span class="nav-text">3. map函数和reduce函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#python中断言"><span class="nav-text">4. python中断言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#python2和3的区别"><span class="nav-text">5. Python2和3的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#异常捕获和处理"><span class="nav-text">6. 异常捕获和处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#提高python运行效率的方法"><span class="nav-text">7. 提高python运行效率的方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#python中的命名方式魔法方法"><span class="nav-text">8. python中的命名方式、魔法方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#python引用计数机制-垃圾回收机制-gc模块"><span class="nav-text">9. python引用计数机制 垃圾回收机制 gc模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内存管理机制"><span class="nav-text">10. 内存管理机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件打开模式"><span class="nav-text">11. 文件打开模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单例模式"><span class="nav-text">12. 单例模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#python函数的嵌套闭包"><span class="nav-text">13. python函数的嵌套、闭包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#python装饰器生成器迭代器"><span class="nav-text">14. python装饰器、生成器、迭代器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#python类可以定义哪几种方法静态方法和类应用场景"><span class="nav-text">15. Python类可以定义哪几种方法：静态方法和类应用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#init__函数init.py的区别"><span class="nav-text">16. __init__函数，init.py的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#怎样调用父类方法"><span class="nav-text">17. 怎样调用父类方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#base64"><span class="nav-text">18. Base64</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#python的反射机制"><span class="nav-text">19. python的反射机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是pythonpath"><span class="nav-text">20. 什么是PYTHONPATH？</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -1891,59 +1014,6 @@
   
 
   
-      
-
-<script>
-  if (typeof MathJax === 'undefined') {
-    window.MathJax = {
-      loader: {
-        source: {
-          '[tex]/amsCd': '[tex]/amscd',
-          '[tex]/AMScd': '[tex]/amscd'
-        }
-      },
-      tex: {
-        inlineMath: {'[+]': [['$', '$']]},
-        tags: 'ams'
-      },
-      options: {
-        renderActions: {
-          findScript: [10, doc => {
-            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-              const display = !!node.type.match(/; *mode=display/);
-              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-              const text = document.createTextNode('');
-              node.parentNode.replaceChild(text, node);
-              math.start = {node: text, delim: '', n: 0};
-              math.end = {node: text, delim: '', n: 0};
-              doc.math.push(math);
-            });
-          }, '', false],
-          insertedScript: [200, () => {
-            document.querySelectorAll('mjx-container').forEach(node => {
-              let target = node.parentNode;
-              if (target.nodeName.toLowerCase() === 'li') {
-                target.parentNode.classList.add('has-jax');
-              }
-            });
-          }, '', false]
-        }
-      }
-    };
-    (function () {
-      var script = document.createElement('script');
-      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
-      script.defer = true;
-      document.head.appendChild(script);
-    })();
-  } else {
-    MathJax.startup.document.state(0);
-    MathJax.texReset();
-    MathJax.typeset();
-  }
-</script>
-
-    
 
   
 
